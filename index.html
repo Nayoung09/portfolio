@@ -11,6 +11,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="preload" href="fonts/Pretendard-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/Pretendard-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+try{ if(!sessionStorage.getItem('introSeen') && !matchMedia('(prefers-reduced-motion: reduce)').matches){ document.documentElement.classList.add('intro-on'); } }catch(e){ document.documentElement.classList.add('intro-on'); }
+</script>
 <style>
 /* Pretendard: fonts 폴더의 woff2를 우선 사용하고, 없으면 위 CDN 버전으로 대체됩니다 */
 @font-face{font-family:"Pretendard";font-weight:400;font-display:swap;src:url("fonts/Pretendard-Regular.woff2") format("woff2")}
@@ -220,6 +223,31 @@ button.btn{font:inherit;font-weight:600;font-size:15px;cursor:pointer}
 .toast{position:fixed;left:50%;bottom:32px;transform:translate(-50%,16px);background:var(--ink);color:#fff;padding:12px 20px;border-radius:999px;font-size:15px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:50}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
+/* opening */
+.intro{display:none}
+.intro-on .intro{display:flex}
+.intro-on body{overflow:hidden}
+.intro-on .track::before,.intro-on .track li,.intro-on .device-frame,.intro-on .float{animation-play-state:paused}
+.intro{position:fixed;inset:0;z-index:100;background:var(--deep);color:var(--on-deep);align-items:center;transition:opacity .6s ease,transform .7s cubic-bezier(.7,0,.2,1)}
+.intro::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(238,243,240,.08) 1px,transparent 1.2px);background-size:22px 22px;pointer-events:none}
+.intro.out{opacity:0;transform:translateY(-6%)}
+.intro-in{position:relative;width:100%;max-width:1120px;margin:0 auto;padding:0 24px}
+.il{margin:0;opacity:0;transform:translateY(14px);animation:rise .7s ease forwards}
+.l1{font-size:clamp(16px,1.8vw,20px);color:var(--on-deep-muted);animation-delay:.3s}
+.l2{margin-top:14px;font-size:clamp(30px,5.4vw,68px);font-weight:800;letter-spacing:-.04em;line-height:1.2;animation-delay:1.1s}
+.l2 em{font-style:normal;color:var(--mint)}
+.l3{margin-top:18px;font-size:clamp(20px,2.6vw,32px);font-weight:700;letter-spacing:-.02em;animation-delay:2.3s}
+.timer{margin-top:36px;display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;animation-delay:3.2s}
+.t-num{font-size:clamp(64px,12vw,160px);font-weight:800;line-height:1;letter-spacing:-.05em;color:var(--on-deep);font-variant-numeric:tabular-nums;transition:color .4s}
+.t-num.done{color:var(--mint)}
+.t-lab{font-size:15px;color:var(--on-deep-muted)}
+.sign{margin-top:44px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:24px;border-top:1px solid rgba(238,243,240,.18);animation-delay:5.6s}
+.sign p{margin:0;color:var(--on-deep-muted);font-size:16px}
+.sign b{color:var(--on-deep);font-size:18px;margin-right:12px}
+.intro-go{font:inherit;font-weight:700;font-size:16px;padding:14px 26px;border:0;border-radius:999px;background:var(--mint);color:var(--deep);cursor:pointer}
+.intro-skip{position:absolute;top:20px;right:24px;z-index:1;font:inherit;font-size:14px;color:var(--on-deep-muted);background:transparent;border:1px solid rgba(238,243,240,.25);border-radius:999px;padding:8px 16px;cursor:pointer}
+.intro-skip:hover{color:var(--on-deep)}
+
 /* progress */
 .progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:40;pointer-events:none}
 .progress i{display:block;height:100%;background:var(--mint);transform-origin:left;transform:scaleX(0)}
@@ -304,11 +332,51 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer a{color:var(--muted)}
 
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.track::before,.track li{animation:none}}
-@media print{.top,.rail{display:none}.story{grid-template-columns:1fr}body{background:#fff}}
+@media print{
+  @page{size:A4;margin:0}
+  html,body{background:var(--bg)!important}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important;transition:none!important}
+  .intro,.top,.progress,.rail,.intro-skip,.cta,.toast,.lb,.skip{display:none!important}
+  html.intro-on body{overflow:visible}
+  .cover{min-height:100vh;padding:72px 0 64px;break-after:page}
+  .cover h1{font-size:72px!important}
+  #more{break-before:page}
+  .sec-head{break-after:avoid}
+  .cover-grid{grid-template-columns:1fr}
+  .device{display:none}
+  .track li,.track::before{opacity:1;transform:none}
+  .story{grid-template-columns:1fr;margin-top:40px}
+  .sec,.case,.cases-head,.contact{padding-top:48px;padding-bottom:48px}
+  .case{break-before:page}
+  #case-quick{break-before:auto}
+  #records{break-after:page}
+  .case-hero,.glance,.figure,.shot,.verify,.kpi,.timeline li,.more article,.rec li,.tools li,.ba,.limit,.insight{break-inside:avoid}
+  .chap h3,.step{break-after:avoid}
+  .zoom{cursor:default}
+  footer{display:none}
+}
 </style>
 </head>
 <body>
 <a class="skip" href="#records">본문 바로가기</a>
+
+<!-- OPENING -->
+<div class="intro" id="intro" aria-label="오프닝">
+  <button class="intro-skip" type="button" data-close>건너뛰기</button>
+  <div class="intro-in">
+    <p class="il l1">긴급배송을 쓰는 약국에 이유를 물었습니다.</p>
+    <p class="il l2">가장 많은 답은 <em>"주문 누락"</em>이었습니다.</p>
+    <p class="il l3">그래서 주문 화면을 다시 설계했습니다.</p>
+    <div class="il l4 timer">
+      <span class="t-num" id="tnum">1:50</span>
+      <span class="t-lab">주문 탐색부터 결제 완료까지</span>
+    </div>
+    <div class="il l5 sign">
+      <p><b>권나영</b>데이터에서 발견하고, 화면으로 끝내는 서비스 기획자</p>
+      <button class="intro-go" type="button" data-close>포트폴리오 보기</button>
+    </div>
+  </div>
+</div>
 
 <div class="progress" aria-hidden="true"><i id="prog"></i></div>
 <header class="top dark" id="hdr">
@@ -335,6 +403,7 @@ footer a{color:var(--muted)}
     <div class="cta">
       <a class="btn primary" href="#cases">대표 사례 읽기</a>
       <a class="btn" href="#records">이력 보기</a>
+      <a class="btn" href="assets/kwon-nayoung-portfolio.pdf" download="권나영_서비스기획_포트폴리오.pdf">PDF 다운로드</a>
     </div>
    </div>
    <div class="device" aria-hidden="true">
@@ -849,6 +918,7 @@ footer a{color:var(--muted)}
     <p>포지션이나 프로젝트에 관해 편하게 연락해 주세요.</p>
     <div class="cta">
       <button class="btn primary" type="button" id="copyMail" data-mail="ksoonykny@naver.com">이메일 보내기</button>
+      <a class="btn" href="assets/kwon-nayoung-portfolio.pdf" download="권나영_서비스기획_포트폴리오.pdf">PDF 다운로드</a>
     </div>
   </div>
 </section>
@@ -870,6 +940,30 @@ footer a{color:var(--muted)}
 </footer>
 
 <script>
+(function(){
+  // 오프닝: 1분 50초에서 36초로 줄어드는 타이머 후 표지로 이동
+  var root=document.documentElement, intro=document.getElementById('intro');
+  if(!root.classList.contains('intro-on')) return;
+  var tnum=document.getElementById('tnum'), from=110, to=36, timerId;
+  function fmt(v){ return Math.floor(v/60)+':'+('0'+v%60).slice(-2); }
+  setTimeout(function(){
+    var start=performance.now(), dur=1800;
+    (function tick(now){
+      var k=Math.min(1,(now-start)/dur), e=1-Math.pow(1-k,3);
+      tnum.textContent=fmt(Math.round(from-(from-to)*e));
+      if(k<1){ timerId=requestAnimationFrame(tick); } else { tnum.classList.add('done'); }
+    })(start);
+  },3700);
+  function close(){
+    cancelAnimationFrame(timerId);
+    try{ sessionStorage.setItem('introSeen','1'); }catch(e){}
+    intro.classList.add('out');
+    setTimeout(function(){ root.classList.remove('intro-on'); intro.remove(); window.scrollTo(0,0); },650);
+  }
+  intro.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click',close); });
+  document.addEventListener('keydown',function k(e){ if(e.key==='Escape'||e.key==='Enter'){ document.removeEventListener('keydown',k); close(); } });
+  setTimeout(function(){ var g=intro.querySelector('.intro-go'); if(g) g.focus({preventScroll:true}); },5800);
+})();
 (function(){
   // 이메일 복사
   var btn=document.getElementById('copyMail'), toast=document.getElementById('toast'), timer;
