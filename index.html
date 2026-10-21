@@ -1,0 +1,839 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>권나영 서비스 기획 포트폴리오</title>
+<meta name="description" content="데이터에서 고객 행동을 발견하고, 문제를 정의하고, 가설을 검증해 실제 화면과 정책으로 바꾸는 서비스 기획자 권나영의 포트폴리오입니다.">
+<meta property="og:title" content="권나영 서비스 기획 포트폴리오">
+<meta property="og:description" content="발견, 정의, 검증, 결정, 출시. 데이터에서 시작해 실제 화면으로 끝나는 기획 사례를 정리했습니다.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preload" href="fonts/Pretendard-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Pretendard-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Pretendard: fonts 폴더의 woff2를 우선 사용하고, 없으면 위 CDN 버전으로 대체됩니다 */
+@font-face{font-family:"Pretendard";font-weight:400;font-display:swap;src:url("fonts/Pretendard-Regular.woff2") format("woff2")}
+@font-face{font-family:"Pretendard";font-weight:500;font-display:swap;src:url("fonts/Pretendard-Medium.woff2") format("woff2")}
+@font-face{font-family:"Pretendard";font-weight:600;font-display:swap;src:url("fonts/Pretendard-SemiBold.woff2") format("woff2")}
+@font-face{font-family:"Pretendard";font-weight:700;font-display:swap;src:url("fonts/Pretendard-Bold.woff2") format("woff2")}
+@font-face{font-family:"Pretendard";font-weight:800;font-display:swap;src:url("fonts/Pretendard-ExtraBold.woff2") format("woff2")}
+:root{
+  --deep:#0D3B33;
+  --deep-2:#124A40;
+  --on-deep:#EEF3F0;
+  --on-deep-muted:#9FB8B0;
+  --mint:#7FD1B9;
+  --bg:#F5F6F3;
+  --surface:#FFFFFF;
+  --ink:#1A2422;
+  --muted:#5D6A66;
+  --line:#D6DCD8;
+  --accent:#0B6E5B;
+  --accent-soft:#E3EFEB;
+  --note:#8A5512;
+  --note-soft:#F6EEE2;
+  --sans:"Pretendard", "Pretendard Variable", -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --read:40rem;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.75;word-break:keep-all;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;z-index:99}
+.skip:focus{left:16px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+p{margin:0 0 1.1em}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700}
+
+/* header */
+.top{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(245,246,243,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);transition:background .25s,border-color .25s}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.brand{font-weight:800;text-decoration:none;color:var(--ink);font-size:16px;letter-spacing:-.01em}
+.brand span{color:var(--muted);font-weight:500;margin-left:8px}
+.nav{display:flex;gap:22px}
+.nav a{color:var(--muted);text-decoration:none;font-size:15px;font-weight:500}
+.nav a:hover,.nav a.on{color:var(--ink)}
+.top.dark{background:transparent;border-color:transparent;backdrop-filter:none}
+.top.dark.solid{background:rgba(13,59,51,.96);border-color:rgba(238,243,240,.08)}
+.top.dark .brand{color:var(--on-deep)}
+.top.dark .brand span,.top.dark .nav a{color:var(--on-deep-muted)}
+.top.dark .nav a:hover{color:var(--on-deep)}
+@media (max-width:720px){.nav{gap:14px}.nav a.hide-sm{display:none}.brand span{display:none}}
+
+/* cover */
+.cover{position:relative;min-height:100vh;min-height:100svh;background:var(--deep);color:var(--on-deep);display:flex;flex-direction:column;justify-content:space-between;padding:120px 0 48px;overflow:hidden}
+.cover::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,rgba(127,209,185,.13),transparent 45%);pointer-events:none}
+.cover .wrap{position:relative;z-index:1;width:100%}
+.who{font-size:15px;font-weight:600;color:var(--mint);margin-bottom:28px}
+.who span{color:var(--on-deep-muted);font-weight:500;margin-left:10px}
+.cover h1{font-size:clamp(36px,6.6vw,84px);line-height:1.18;font-weight:800;letter-spacing:-.04em;max-width:13.5em}
+.cover h1 em{font-style:normal;color:var(--mint)}
+.nw{white-space:nowrap}
+.cover .lede{margin-top:32px;max-width:36rem;color:var(--on-deep-muted);font-size:18px;line-height:1.7}
+.cover .cta{margin-top:36px}
+.cover .btn{border-color:rgba(238,243,240,.5);color:var(--on-deep)}
+.cover .btn.primary{background:var(--on-deep);border-color:var(--on-deep);color:var(--deep)}
+
+.track-t{font-size:14px;color:var(--on-deep-muted);margin:64px 0 18px}
+.track{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(5,1fr);position:relative}
+.track::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:rgba(238,243,240,.28);transform-origin:left;animation:draw 1.1s cubic-bezier(.6,0,.2,1) .2s both}
+.track li{position:relative;padding:22px 20px 0 0;animation:rise .6s ease both}
+.track li::before{content:"";position:absolute;top:-6px;left:0;width:14px;height:14px;border-radius:50%;background:var(--deep);border:2px solid var(--on-deep)}
+.track li:last-child::before{background:var(--mint);border-color:var(--mint)}
+.track li:nth-child(1){animation-delay:.35s}.track li:nth-child(2){animation-delay:.5s}.track li:nth-child(3){animation-delay:.65s}.track li:nth-child(4){animation-delay:.8s}.track li:nth-child(5){animation-delay:.95s}
+.track .n{font-size:13px;color:var(--on-deep-muted);font-variant-numeric:tabular-nums}
+.track b{display:block;font-size:20px;font-weight:700;margin-top:2px;letter-spacing:-.02em}
+.track .proof{display:block;font-size:14px;line-height:1.55;color:var(--on-deep-muted);margin-top:8px;max-width:13em}
+.track .proof strong{display:block;color:var(--on-deep);font-size:17px;font-weight:700;font-variant-numeric:tabular-nums;margin-bottom:2px}
+.track li:last-child .proof strong{color:var(--mint)}
+@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (max-width:820px){
+  .track{grid-template-columns:1fr;padding-left:26px}
+  .track::before{top:0;bottom:0;left:6px;right:auto;width:2px;height:auto;transform-origin:top;animation-name:drawv}
+  .track li{padding:0 0 22px}
+  .track li::before{left:-26px;top:4px}
+  .track .proof{max-width:none}
+  .cover{padding-top:104px}
+}
+@keyframes drawv{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+
+.cta{margin-top:40px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:12px 20px;border:1.5px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;border-radius:4px}
+.btn.primary{background:var(--ink);color:#fff}
+
+/* section heads */
+.sec{padding:88px 0;border-top:1px solid var(--line)}
+.sec-head{max-width:var(--read);margin-bottom:48px}
+.sec-head h2{font-size:clamp(28px,3.8vw,40px);font-weight:800;letter-spacing:-.03em}
+.cases-head{padding:96px 0 0;border-top:1px solid var(--line)}
+#case-quick{border-top:0;padding-top:56px}
+.cases-head .sec-head{margin-bottom:0}
+.sec-head p{margin-top:14px;color:var(--muted)}
+
+/* case */
+.case{padding:96px 0;border-top:1px solid var(--line)}
+.case-intro{max-width:46rem}
+.case-tag{font-size:14px;color:var(--muted)}
+.case-tag b{color:var(--accent);font-weight:700;margin-right:10px}
+.case h2{font-size:clamp(28px,4.2vw,44px);font-weight:800;letter-spacing:-.035em;margin-top:14px;line-height:1.3}
+.case .lead{font-size:19px;margin-top:18px;color:var(--ink);max-width:44rem}
+.meta{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:22px;font-size:14px;color:var(--muted)}
+.meta strong{color:var(--ink);font-weight:600;margin-right:6px}
+
+.glance{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);background:var(--surface);border:1px solid var(--line);border-radius:6px}
+.glance div{padding:22px 24px}
+.glance div+div{border-left:1px solid var(--line)}
+.glance h3{font-size:14px;color:var(--muted);font-weight:600;margin-bottom:8px}
+.glance p{margin:0;font-size:16px;line-height:1.65}
+.glance .res p{font-weight:600}
+@media (max-width:820px){.glance{grid-template-columns:1fr}.glance div+div{border-left:0;border-top:1px solid var(--line)}}
+
+.story{display:grid;grid-template-columns:190px minmax(0,1fr);gap:56px;margin-top:72px}
+.rail{position:sticky;top:96px;align-self:start}
+.rail ol{margin:0;padding:0;list-style:none;border-left:2px solid var(--line)}
+.rail li a{display:block;padding:7px 0 7px 18px;margin-left:-2px;border-left:2px solid transparent;color:var(--muted);text-decoration:none;font-size:15px}
+.rail li a.on{color:var(--ink);font-weight:700;border-left-color:var(--accent)}
+.rail .rail-t{font-size:13px;color:var(--muted);margin-bottom:12px}
+@media (max-width:900px){.story{grid-template-columns:1fr;gap:0}.rail{display:none}}
+
+.chap{max-width:var(--read);padding-bottom:56px}
+.chap+.chap{padding-top:8px}
+.step{font-size:14px;font-weight:700;color:var(--accent);display:flex;align-items:center;gap:10px}
+.step::after{content:"";height:1px;background:var(--line);flex:1}
+.chap h3{font-size:24px;font-weight:700;letter-spacing:-.02em;margin:10px 0 18px;line-height:1.45}
+
+/* content blocks */
+.figure{margin:28px 0;padding:24px;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+.figure .cap{font-size:13px;color:var(--muted);margin-top:14px;line-height:1.6}
+.insight{margin:28px 0;padding:4px 0 4px 20px;border-left:3px solid var(--accent);font-size:19px;font-weight:600;line-height:1.65;letter-spacing:-.01em}
+.limit{margin:24px 0;padding:18px 20px;background:var(--note-soft);border-radius:6px;font-size:16px}
+.limit b{color:var(--note);display:block;margin-bottom:4px;font-size:14px}
+
+.okr{margin:20px 0;padding:0;list-style:none;counter-reset:o}
+.okr li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px}
+.okr li span:last-child{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+.share{display:flex;height:14px;border-radius:7px;overflow:hidden;background:var(--line);margin:16px 0 10px}
+.share i{display:block;background:var(--accent)}
+.share-legend{display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+.share-legend b{color:var(--ink);font-size:22px;display:block;font-variant-numeric:tabular-nums}
+
+.ba{display:grid;gap:14px}
+.ba-row{display:grid;grid-template-columns:96px 1fr 72px;align-items:center;gap:12px;font-size:14px}
+.ba-row .lab{color:var(--muted)}
+.ba-row .bar{height:12px;border-radius:6px;background:var(--line)}
+.ba-row .bar.after{background:var(--accent)}
+.ba-row .val{font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+.ba-title{font-weight:700;font-size:15px;margin-bottom:12px}
+.ba + .ba{margin-top:26px;padding-top:22px;border-top:1px dashed var(--line)}
+
+.verify{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0}
+.verify div{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px}
+.verify .k{font-size:13px;color:var(--muted)}
+.verify .v{font-size:28px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.3}
+.verify .s{font-size:14px;color:var(--muted)}
+.verify .pass .v{color:var(--accent)}
+@media (max-width:520px){.verify{grid-template-columns:1fr}}
+
+.timeline{margin:28px 0;padding:0;list-style:none}
+.timeline li{position:relative;padding:0 0 30px 28px;border-left:2px solid var(--line)}
+.timeline li:last-child{border-left-color:transparent;padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.timeline .when{font-size:13px;color:var(--muted)}
+.timeline h4{font-size:17px;margin:2px 0 8px}
+.timeline p{font-size:16px;margin-bottom:.6em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chip{font-size:13px;padding:4px 10px;background:var(--accent-soft);color:var(--accent);border-radius:999px;font-weight:600}
+
+.kpi{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--surface)}
+.kpi > div{padding:18px 20px}
+.kpi > div+div{border-left:1px solid var(--line)}
+.kpi h4{font-size:14px;color:var(--muted);margin-bottom:10px}
+.kpi ul{margin:0;padding:0;list-style:none;font-size:15px}
+.kpi li{padding:4px 0}
+.kpi li.core{font-weight:700;color:var(--accent)}
+@media (max-width:520px){.kpi{grid-template-columns:1fr}.kpi > div+div{border-left:0;border-top:1px solid var(--line)}}
+
+.io{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.io > div{border:1px solid var(--line);border-radius:6px;padding:16px;background:var(--bg);font-size:14px;line-height:1.65}
+.io h4{font-size:13px;color:var(--muted);margin-bottom:8px;font-weight:600}
+@media (max-width:520px){.io{grid-template-columns:1fr}}
+
+.role{margin-top:8px;font-size:15px;color:var(--muted)}
+
+.shot{margin:28px 0}
+.shot.small{max-width:30rem}
+.zoom{display:block;width:100%;padding:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--surface);cursor:zoom-in}
+.zoom img{display:block;width:100%;height:auto}
+.shot figcaption{font-size:13px;color:var(--muted);margin-top:10px;line-height:1.6}
+.lb{border:0;padding:0;background:transparent;max-width:min(1400px,94vw);max-height:92vh}
+.lb::backdrop{background:rgba(10,20,18,.82)}
+.lb img{display:block;max-width:100%;max-height:88vh;width:auto;height:auto;border-radius:6px;background:#fff}
+.lb button{position:fixed;top:16px;right:20px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.9);font-size:22px;cursor:pointer}
+.chap{min-width:0}
+
+/* more work */
+.more{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.more article{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:26px}
+.more h3{font-size:19px}
+.more .sub{font-size:14px;color:var(--muted);margin:4px 0 14px}
+.more dl{margin:0;font-size:15px;line-height:1.65}
+.more dt{font-weight:700;font-size:13px;color:var(--muted);margin-top:10px}
+.more dd{margin:2px 0 0}
+@media (max-width:820px){.more{grid-template-columns:1fr}}
+
+/* records */
+.records{display:grid;grid-template-columns:repeat(2,1fr);gap:56px}
+.records h3{font-size:15px;color:var(--muted);font-weight:600;margin-bottom:8px}
+.rec{list-style:none;margin:0 0 40px;padding:0}
+.rec li{padding:16px 0;border-bottom:1px solid var(--line)}
+.rec .t{font-weight:700}
+.rec .d{font-size:15px;color:var(--muted);line-height:1.6;margin-top:2px}
+.rec .when{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tools{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tools li{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+.ti{flex:none;width:36px;height:36px;display:grid;place-items:center;border-radius:8px;background:var(--bg)}
+.ti svg{width:20px;height:20px}
+.mono{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;color:#fff;font-size:12px;font-weight:800;letter-spacing:-.02em}
+.tools b{display:block;font-size:15px;line-height:1.35}
+.tools small{display:block;font-size:13px;color:var(--muted);line-height:1.4}
+@media (max-width:520px){.tools{grid-template-columns:1fr}}
+@media (max-width:820px){.records{grid-template-columns:1fr;gap:0}}
+
+/* contact */
+.contact{padding:96px 0 120px;border-top:1px solid var(--line)}
+.contact h2{font-size:clamp(28px,4.4vw,48px);font-weight:800;letter-spacing:-.035em;max-width:15em;line-height:1.3}
+.contact p{color:var(--muted);margin-top:16px;max-width:var(--read)}
+footer{border-top:1px solid var(--line);padding:24px 0;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--muted)}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.track::before,.track li{animation:none}}
+@media print{.top,.rail{display:none}.story{grid-template-columns:1fr}body{background:#fff}}
+</style>
+</head>
+<body>
+<a class="skip" href="#records">본문 바로가기</a>
+
+<header class="top dark" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top">권나영<span>서비스 기획</span></a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="#records">이력</a>
+      <a href="#cases">대표 사례</a>
+      <a href="#more" class="hide-sm">추가 경험</a>
+      <a href="#contact">연락</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- COVER -->
+<section class="cover" id="top">
+  <div class="wrap">
+    <p class="who">권나영<span>서비스 기획자</span></p>
+    <h1>데이터에서 발견한 고객 행동을, <em>실제로 쓰이는 화면</em>으로 바꿉니다.</h1>
+    <p class="lede">헬스케어 커머스 더편한샵에서 1년 6개월 동안 약국과 병의원 회원을 위한 기능과 데이터 도구를 기획했습니다. 분석에서 멈추지 않고 배포까지 <span class="nw">직접 끌고 갔습니다.</span></p>
+    <div class="cta">
+      <a class="btn primary" href="#cases">대표 사례 읽기</a>
+      <a class="btn" href="#records">이력 보기</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <p class="track-t">퀵오더 한 건으로 보는 일하는 방식</p>
+    <ol class="track" aria-label="일하는 방식">
+      <li><span class="n">1</span><b>발견</b><span class="proof"><strong>'주문 누락'</strong>긴급배송 이용 사유 설문에서 찾았습니다</span></li>
+      <li><span class="n">2</span><b>정의</b><span class="proof"><strong>46.8%</strong>같은 상품을 10회 이상 사는 회원 비중</span></li>
+      <li><span class="n">3</span><b>가설과 검증</b><span class="proof"><strong>63.6% 에서 85.1%</strong>알림 정확도를 기준 70% 위로</span></li>
+      <li><span class="n">4</span><b>결정</b><span class="proof"><strong>알림 대신 화면</strong>약국 인터뷰 후 재고 정보를 화면에</span></li>
+      <li><span class="n">5</span><b>출시</b><span class="proof"><strong>1분 50초 에서 36초</strong>주문 탐색부터 결제까지</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- RECORDS -->
+<section class="sec" id="records" style="border-top:0" aria-labelledby="rec-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="rec-title">이력</h2>
+      <p>대표 사례에 들어가기 전에, 어디서 어떤 일을 해 왔는지 먼저 정리했습니다.</p>
+    </div>
+    <div class="records">
+      <div>
+        <h3>경력</h3>
+        <ul class="rec">
+          <li>
+            <span class="when">2025.03 부터 1년 6개월</span>
+            <div class="t">더편한샵 (현 이지메디컴) 커머스기획</div>
+            <div class="d">약국몰, 병원몰 기능 기획과 데이터 대시보드 구축. 화면 배치와 기능, 구동 방식은 화면기능서로 직접 작성했습니다.</div>
+          </li>
+          <li>
+            <span class="when">2023.10 ~ 2023.11</span>
+            <div class="t">SK Telecom CS T1, Business Development Team 인턴</div>
+            <div class="d">팝업스토어 사업 기획과 현장 운영 점검, 고객 경험 모니터링, 크리에이터 홍보 대본 작성</div>
+          </li>
+        </ul>
+
+        <h3>학력</h3>
+        <ul class="rec">
+          <li>
+            <span class="when">2026.02 졸업</span>
+            <div class="t">숙명여자대학교 경영학부</div>
+            <div class="d">소프트웨어융합전공 복수전공</div>
+          </li>
+        </ul>
+        <h3>도구</h3>
+        <ul class="tools">
+          <li><span class="ti"><span class="mono" style="background:#2E5E8C" aria-hidden="true">Sf</span></span><span><b>Spotfire</b><small>사내 데이터 분석, 사용성 분석</small></span></li>
+          <li><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M11.9475 0c-1.1598.0021-2.0982.944-2.096 2.1038a2.1 2.1 0 00.356 1.166l.895-.8959a.884.884 0 11.565.564l-.895.895c.9593.6478 2.2621.3953 2.91-.564.6478-.9593.3953-2.262-.564-2.91A2.096 2.096 0 0011.9475 0zm-.835 6.1128a3.2629 3.2629 0 00-.653-1.965l-1.164 1.162a1.667 1.667 0 01-.318 2.012l.632 1.5449a3.2819 3.2819 0 001.503-2.754zm-3.2499 1.666h-.03c-.9217.0009-1.6697-.7455-1.6707-1.6673-.001-.9217.7454-1.6697 1.6672-1.6707a1.669 1.669 0 01.9195.275l1.152-1.152c-1.4069-1.141-3.4724-.9257-4.6135.4811s-.9257 3.4723.481 4.6135a3.2799 3.2799 0 002.7275.6652l-.633-1.5439v-.001zm4.1279 1.3359c-.728 0-1.452.106-2.15.315l.922 2.2519c2.6872-.6819 5.4184.9438 6.1002 3.631.6818 2.6873-.9439 5.4184-3.6311 6.1002s-5.4184-.9439-6.1002-3.631c-.5682-2.2394.4655-4.5774 2.5041-5.6643l-.91-2.2449c-3.6908 1.808-5.2173 6.2657-3.4093 9.9567l.0005.001c1.808 3.6909 6.2657 5.2173 9.9567 3.4093l.001-.0005c3.6913-1.8071 5.2187-6.2645 3.4116-9.9558a7.4417 7.4417 0 00-6.6865-4.1696h-.008l-.001.001z"/></svg></span><span><b>Looker Studio</b><small>SLA 평가 대시보드</small></span></li>
+          <li><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#F46800" d="M23.02 10.59a8.578 8.578 0 0 0-.862-3.034 8.911 8.911 0 0 0-1.789-2.445c.337-1.342-.413-2.505-.413-2.505-1.292-.08-2.113.4-2.416.62-.052-.02-.102-.044-.154-.064-.22-.089-.446-.172-.677-.247-.231-.073-.47-.14-.711-.197a9.867 9.867 0 0 0-.875-.161C14.557.753 12.94 0 12.94 0c-1.804 1.145-2.147 2.744-2.147 2.744l-.018.093c-.098.029-.2.057-.298.088-.138.042-.275.094-.413.143-.138.055-.275.107-.41.166a8.869 8.869 0 0 0-1.557.87l-.063-.029c-2.497-.955-4.716.195-4.716.195-.203 2.658.996 4.33 1.235 4.636a11.608 11.608 0 0 0-.607 2.635C1.636 12.677.953 15.014.953 15.014c1.926 2.214 4.171 2.351 4.171 2.351.003-.002.006-.002.006-.005.285.509.615.994.986 1.446.156.19.32.371.488.548-.704 2.009.099 3.68.099 3.68 2.144.08 3.553-.937 3.849-1.173a9.784 9.784 0 0 0 3.164.501h.08l.055-.003.107-.002.103-.005.003.002c1.01 1.44 2.788 1.646 2.788 1.646 1.264-1.332 1.337-2.653 1.337-2.94v-.058c0-.02-.003-.039-.003-.06.265-.187.52-.387.758-.6a7.875 7.875 0 0 0 1.415-1.7c1.43.083 2.437-.885 2.437-.885-.236-1.49-1.085-2.216-1.264-2.354l-.018-.013-.016-.013a.217.217 0 0 1-.031-.02c.008-.092.016-.18.02-.27.011-.162.016-.323.016-.48v-.253l-.005-.098-.008-.135a1.891 1.891 0 0 0-.01-.13c-.003-.042-.008-.083-.013-.125l-.016-.124-.018-.122a6.215 6.215 0 0 0-2.032-3.73 6.015 6.015 0 0 0-3.222-1.46 6.292 6.292 0 0 0-.85-.048l-.107.002h-.063l-.044.003-.104.008a4.777 4.777 0 0 0-3.335 1.695c-.332.4-.592.84-.768 1.297a4.594 4.594 0 0 0-.312 1.817l.003.091c.005.055.007.11.013.164a3.615 3.615 0 0 0 .698 1.82 3.53 3.53 0 0 0 1.827 1.282c.33.098.66.14.971.137.039 0 .078 0 .114-.002l.063-.003c.02 0 .041-.003.062-.003.034-.002.065-.007.099-.01.007 0 .018-.003.028-.003l.031-.005.06-.008a1.18 1.18 0 0 0 .112-.02c.036-.008.072-.013.109-.024a2.634 2.634 0 0 0 .914-.415c.028-.02.056-.041.085-.065a.248.248 0 0 0 .039-.35.244.244 0 0 0-.309-.06l-.078.042c-.09.044-.184.083-.283.116a2.476 2.476 0 0 1-.475.096c-.028.003-.054.006-.083.006l-.083.002c-.026 0-.054 0-.08-.002l-.102-.006h-.012l-.024.006c-.016-.003-.031-.003-.044-.006-.031-.002-.06-.007-.091-.01a2.59 2.59 0 0 1-.724-.213 2.557 2.557 0 0 1-.667-.438 2.52 2.52 0 0 1-.805-1.475 2.306 2.306 0 0 1-.029-.444l.006-.122v-.023l.002-.031c.003-.021.003-.04.005-.06a3.163 3.163 0 0 1 1.352-2.29 3.12 3.12 0 0 1 .937-.43 2.946 2.946 0 0 1 .776-.101h.06l.07.002.045.003h.026l.07.005a4.041 4.041 0 0 1 1.635.49 3.94 3.94 0 0 1 1.602 1.662 3.77 3.77 0 0 1 .397 1.414l.005.076.003.075c.002.026.002.05.002.075 0 .024.003.052 0 .07v.065l-.002.073-.008.174a6.195 6.195 0 0 1-.08.639 5.1 5.1 0 0 1-.267.927 5.31 5.31 0 0 1-.624 1.13 5.052 5.052 0 0 1-3.237 2.014 4.82 4.82 0 0 1-.649.066l-.039.003h-.287a6.607 6.607 0 0 1-1.716-.265 6.776 6.776 0 0 1-3.4-2.274 6.75 6.75 0 0 1-.746-1.15 6.616 6.616 0 0 1-.714-2.596l-.005-.083-.002-.02v-.056l-.003-.073v-.096l-.003-.104v-.07l.003-.163c.008-.22.026-.45.054-.678a8.707 8.707 0 0 1 .28-1.355c.128-.444.286-.872.473-1.277a7.04 7.04 0 0 1 1.456-2.1 5.925 5.925 0 0 1 .953-.763c.169-.111.343-.213.524-.306.089-.05.182-.091.273-.135.047-.02.093-.042.138-.062a7.177 7.177 0 0 1 .714-.267l.145-.045c.049-.015.098-.026.148-.041.098-.029.197-.052.296-.076.049-.013.1-.02.15-.033l.15-.032.151-.028.076-.013.075-.01.153-.024c.057-.01.114-.013.171-.023l.169-.021c.036-.003.073-.008.106-.01l.073-.008.036-.003.042-.002c.057-.003.114-.008.171-.01l.086-.006h.023l.037-.003.145-.007a7.999 7.999 0 0 1 1.708.125 7.917 7.917 0 0 1 2.048.68 8.253 8.253 0 0 1 1.672 1.09l.09.077.089.078c.06.052.114.107.171.159.057.052.112.106.166.16.052.055.107.107.159.164a8.671 8.671 0 0 1 1.41 1.978c.012.026.028.052.04.078l.04.078.075.156c.023.051.05.1.07.153l.065.15a8.848 8.848 0 0 1 .45 1.34.19.19 0 0 0 .201.142.186.186 0 0 0 .172-.184c.01-.246.002-.532-.024-.856z"/></svg></span><span><b>Grafana</b><small>퀵오더 사용 로그 실시간 확인</small></span></li>
+          <li><span class="ti"><span class="mono" style="background:#5C4FD6" aria-hidden="true">Cl</span></span><span><b>Microsoft Clarity</b><small>사용자 화면 분석</small></span></li>
+          <li><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#F24E1E" d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg></span><span><b>Figma</b><small>화면 기능서, 와이어프레임</small></span></li>
+          <li><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4B71" d="M21.4737 5.6842c-1.1772 0-2.1663.8051-2.4468 1.8947h-2.8955c-1.235 0-2.289.893-2.492 2.111l-.1038.623a1.263 1.263 0 0 1-1.246 1.0555H11.289c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947s-2.1663.8051-2.4467 1.8947H4.973c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947C1.1311 9.4737 0 10.6047 0 12s1.131 2.5263 2.5263 2.5263c1.1772 0 2.1663-.8051 2.4468-1.8947h1.4223c.2804 1.0896 1.2696 1.8947 2.4467 1.8947 1.1772 0 2.1663-.8051 2.4468-1.8947h1.0008a1.263 1.263 0 0 1 1.2459 1.0555l.1038.623c.203 1.218 1.257 2.111 2.492 2.111h.3692c.2804 1.0895 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263c-1.1772 0-2.1664.805-2.4468 1.8947h-.3692a1.263 1.263 0 0 1-1.246-1.0555l-.1037-.623A2.52 2.52 0 0 0 13.9607 12a2.52 2.52 0 0 0 .821-1.4794l.1038-.623a1.263 1.263 0 0 1 1.2459-1.0555h2.8955c.2805 1.0896 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263m0 1.2632a1.263 1.263 0 0 1 1.2631 1.2631 1.263 1.263 0 0 1-1.2631 1.2632 1.263 1.263 0 0 1-1.2632-1.2632 1.263 1.263 0 0 1 1.2632-1.2631M2.5263 10.7368A1.263 1.263 0 0 1 3.7895 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 1.2632 12a1.263 1.263 0 0 1 1.2631-1.2632m6.3158 0A1.263 1.263 0 0 1 10.1053 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 7.579 12a1.263 1.263 0 0 1 1.2632-1.2632m10.1053 3.7895a1.263 1.263 0 0 1 1.2631 1.2632 1.263 1.263 0 0 1-1.2631 1.2631 1.263 1.263 0 0 1-1.2632-1.2631 1.263 1.263 0 0 1 1.2632-1.2632"/></svg></span><span><b>n8n</b><small>구글시트 데이터 자동 갱신</small></span></li>
+          <li><span class="ti"><span class="mono" style="background:#1F4E79" aria-hidden="true">Tb</span></span><span><b>Tableau</b><small>취업 데이터 시각화 공모전</small></span></li>
+          <li><span class="ti"><span class="mono" style="background:#5D6A66" aria-hidden="true">SQL</span></span><span><b>SQL</b><small>쿼리 해석, 데이터 정합성 확인</small></span></li>
+        </ul>
+
+      </div>
+
+      <div>
+        <h3>연구 및 수상</h3>
+        <ul class="rec">
+          <li>
+            <span class="when">2024.11</span>
+            <div class="t">한국상품학회 추계학술대회 최우수 논문상</div>
+            <div class="d">기업광고가 제품광고에 미치는 스필오버 효과 실증연구. 실제 기업 광고 데이터로 노출, 클릭, 매출 영향과 Continuous 및 Flighting 전략을 비교했습니다. (4인 공동)</div>
+          </li>
+          <li>
+            <span class="when">2024.05</span>
+            <div class="t">숙명여대 데이터 시각화 공모전 우수상</div>
+            <div class="d">Tableau로 전공별 취업 직종과 수강과목 워드클라우드 대시보드 제작 (팀)</div>
+          </li>
+        </ul>
+
+        <h3>자격</h3>
+        <ul class="rec">
+          <li><div class="t">ADsP 데이터분석 준전문가</div><div class="d">2024.03</div></li>
+          <li><div class="t">TOEIC Speaking AL</div><div class="d">2026.09</div></li>
+          <li><div class="t">컴퓨터활용능력 2급</div><div class="d">2024.08</div></li>
+          <li><div class="t">빅데이터 애널리틱스 마이크로디그리 이수</div><div class="d">2023.08</div></li>
+        </ul>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<div class="cases-head" id="cases">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>대표 사례</h2>
+      <p>세 가지 모두 발견, 정의, 가설과 검증, 결정, 출시 순서로 정리했습니다.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CASE 1 : QUICK ORDER -->
+<section class="case" id="case-quick" aria-labelledby="c1-title">
+  <div class="wrap">
+    <div class="case-intro">
+      <p class="case-tag"><b>대표 사례 1</b>더편한샵 약국몰 주문 기능</p>
+      <h2 id="c1-title">긴급배송의 이유를 묻는 데서 시작한 퀵오더</h2>
+      <p class="lead">반복 구매 약국의 주문 누락을 줄이기 위해, 세 번의 배포를 거쳐 <span class="nw">주문 화면을 바꿨습니다.</span></p>
+      <div class="meta">
+        <span><strong>역할</strong>기획, 정책서, TC 작성, QA, 배포, 검증 전 과정 담당</span>
+        <span><strong>협업</strong>개발팀, 디자인팀</span>
+        <span><strong>도구</strong>Spotfire, Grafana, Clarity, Figma</span>
+      </div>
+    </div>
+
+    <div class="glance">
+      <div><h3>문제</h3><p>자주 사는 상품을 매번 다시 찾아 주문하다 빠뜨리고, 긴급배송으로 메우고 있었습니다.</p></div>
+      <div><h3>한 일</h3><p>구매 루틴 기반 추천 리스트와 다시 구매하기 위젯을 기획하고 3차까지 배포했습니다.</p></div>
+      <div class="res"><h3>결과</h3><p>주문 탐색부터 결제 완료까지 1분 50초에서 36초로 줄었습니다.</p></div>
+    </div>
+
+    <div class="story">
+      <aside class="rail" aria-hidden="true">
+        <p class="rail-t">이 사례의 흐름</p>
+        <ol>
+          <li><a href="#q1">발견</a></li>
+          <li><a href="#q2">정의</a></li>
+          <li><a href="#q3">가설과 검증</a></li>
+          <li><a href="#q4">결정</a></li>
+          <li><a href="#q5">출시</a></li>
+        </ol>
+      </aside>
+
+      <div>
+        <article class="chap" id="q1">
+          <p class="step">1 발견</p>
+          <h3>긴급배송을 쓰는 회원에게 이유를 물었습니다</h3>
+          <p>VC 회원의 긴급배송 이용 사유를 설문으로 조사했습니다. '주문 누락'이라는 응답이 많았습니다.</p>
+          <p>이 응답을 한 회원들의 구매 이력을 분석했습니다. 70% 이상이 1년 동안 같은 상품을 10회 이상 구매한 회원이었습니다. 늘 사는 상품일수록 매번 검색하고 담는 과정에서 빠뜨리고 있었습니다.</p>
+          <figure class="shot">
+            <button class="zoom" type="button" aria-label="이미지 크게 보기"><img src="assets/img/qo-survey.webp" alt="긴급배송 이용 회원 설문 결과 차트. 긴급배송 사유별 월 평균 횟수에서 주문누락 응답이 가장 많음" width="1600" height="1156" loading="lazy"></button>
+            <figcaption>긴급배송 이용 회원 설문 결과입니다. 사유별 월 평균 이용 횟수에서 주문누락의 비중이 가장 컸습니다.</figcaption>
+          </figure>
+          
+        </article>
+
+        <article class="chap" id="q2">
+          <p class="step">2 정의</p>
+          <h3>일부의 실수가 아니라 절반 가까운 회원의 구조였습니다</h3>
+          <p>범위를 전체 회원으로 넓혀 2024년 데이터를 다시 봤습니다. 같은 ETC 상품을 10회 이상 구매한 회원은 8,586명이었습니다.</p>
+          <div class="figure">
+            <div class="share" role="img" aria-label="매출 발생 회원 18,356명 중 8,586명, 46.8%"><i style="width:46.8%"></i></div>
+            <div class="share-legend">
+              <span><b>8,586명</b>동일 상품 10회 이상 구매</span>
+              <span style="text-align:right"><b>46.8%</b>매출 발생 회원 18,356명 중</span>
+            </div>
+          </div>
+          <p>문제를 '반복 구매 상품을 다시 찾는 데 드는 시간과 누락'으로 정의하고, 세 가지 목표를 세웠습니다.</p>
+          <ul class="okr">
+            <li><span>퀵오더를 통한 주문 비중</span><span>50%</span></li>
+            <li><span>추천 루틴 리스트 사용 회원</span><span>75% (6,440명)</span></li>
+            <li><span>VC 긴급배송 사용</span><span>40% 감소</span></li>
+          </ul>
+        </article>
+
+        <article class="chap" id="q3">
+          <p class="step">3 가설과 검증</p>
+          <h3>예측 알림은 정확해졌지만, 신뢰받지 못했습니다</h3>
+          <p>첫 가설은 주문할 때가 된 상품을 카카오톡으로 알려주는 것이었습니다. 정확도 기준을 70%로 먼저 정하고 검증했습니다.</p>
+          <div class="verify">
+            <div><span class="k">1차 검증</span><div class="v">63.6%</div><span class="s">397건 중 252건, 기준 미달로 로직 수정</span></div>
+            <div class="pass"><span class="k">2차 검증</span><div class="v">85.1%</div><span class="s">81건 중 69건, 기준 달성</span></div>
+          </div>
+          <p>정확도는 기준을 넘었지만, 테스트 약국이 알림 링크를 누르지 않았습니다. 데이터만으로는 이유를 알 수 없어 약국 세 곳을 직접 방문해 인터뷰했습니다.</p>
+          <p>약사님들은 언제 주문하라는 예측형 알림은 믿지 않았습니다. 반면 재고, 품절, 공급중단 같은 정보성 알림은 필요하다고 답했고, 알림톡보다 화면 안 팝업을 선호했습니다.</p>
+          <p class="insight">정확도가 기준을 넘어도, 사용자가 믿지 않으면 쓰이지 않는다는 점을 확인했습니다.</p>
+        </article>
+
+        <article class="chap" id="q4">
+          <p class="step">4 결정</p>
+          <h3>알림을 밀어붙이지 않고, 화면을 바꿨습니다</h3>
+          <p>인터뷰에서 선호한 재고와 품절 정보를 퀵오더 화면에 바로 표시했습니다.</p>
+          <figure class="shot">
+            <button class="zoom" type="button" aria-label="이미지 크게 보기"><img src="assets/img/qo-screen.webp" alt="퀵오더 화면. 왼쪽에 최근 주문 상품과 즐겨찾기 탭, 가운데에 가격, 재고, 공급사, 수량, 담기 버튼, 오른쪽에 결제 정보" width="1600" height="1067" loading="lazy"></button>
+            <figcaption>실제 배포된 퀵오더 화면입니다. 상품마다 재고를 바로 보여주고, 담은 상품을 오른쪽에서 바로 결제할 수 있게 했습니다.</figcaption>
+          </figure>
+          
+          <p>예측 알림은 개발하지 않고 '알림 사전신청하기' 버튼만 둔 프리토타입으로 바꿔, 실제 수요부터 확인하기로 했습니다.</p>
+          <p>기능 이름도 '스마트 주문'에서 '퀵오더'로 바꿨습니다. 변경 전후로 1일 평균 클릭률은 3.9%에서 7.5%로 올랐습니다.</p>
+        </article>
+
+        <article class="chap" id="q5">
+          <p class="step">5 출시</p>
+          <h3>세 번 배포하며, 누구를 위한 기능인지 다시 좁혔습니다</h3>
+          <ol class="timeline">
+            <li>
+              <span class="when">2025.11 MVP 1차와 정착 프로모션</span>
+              <h4>'3일 사용'을 정착 기준으로 삼았습니다</h4>
+              <p>꾸준히 쓰는 회원의 패턴을 분석해 3일 사용을 정착 기준으로 잡고, 달성 시 마일리지를 지급했습니다. 108처가 참여했고 40처가 3일 이상 반복 사용했으며, 종료 후에도 18처가 계속 사용했습니다.</p>
+              <figure class="shot small">
+            <button class="zoom" type="button" aria-label="이미지 크게 보기"><img src="assets/img/qo-promotion.webp" alt="퀵오더 마일리지 프로모션 이벤트 페이지. 첫 사용 시 500P, 3일 사용 시 최대 1,500P 지급" width="800" height="482" loading="lazy"></button>
+            <figcaption>정착 프로모션 이벤트 페이지입니다. 3일 사용 기준에 맞춰 보상을 설계했습니다.</figcaption>
+          </figure>
+          
+              <div class="limit"><b>확인한 한계</b>참여자의 74%가 이미 즐겨찾기를 쓰던 회원이었습니다. 멤버십 1,650처 중 즐겨찾기를 설정한 약국은 79처뿐이었습니다. 프로모션만으로는 새로운 사용자를 만들기 어려웠습니다.</div>
+            </li>
+            <li>
+              <span class="when">2025.11.27 MVP 2차</span>
+              <h4>일반회원으로 대상을 넓혔습니다</h4>
+              <p>추천 상품 계산 로직을 조정하고 '최근 주문 상품' 탭을 새로 만들었습니다. 새로 활성화된 7처 중 6처가 일반회원이어서, 멤버십 중심이던 방향을 일반회원까지 확장했습니다.</p>
+            </li>
+            <li>
+              <span class="when">2026.01.08 MVP 3차</span>
+              <h4>버튼과 설명 페이지를 고쳤습니다</h4>
+              <p>버튼 UI와 내부 설명 페이지를 개선했습니다. 사용 전환율은 14.9%에서 17.4%로 올랐고 12처가 새로 유입됐습니다.</p>
+              <div class="chips"><span class="chip">전환율 14.9% 에서 17.4%</span><span class="chip">신규 12처</span></div>
+            </li>
+          </ol>
+
+          <div class="figure">
+            <div class="ba">
+              <p class="ba-title">주문 탐색부터 결제 완료까지 걸린 시간</p>
+              <div class="ba-row"><span class="lab">기존 주문</span><span class="bar" style="width:100%"></span><span class="val">1분 50초</span></div>
+              <div class="ba-row"><span class="lab">퀵오더</span><span class="bar after" style="width:32.7%"></span><span class="val">36초</span></div>
+            </div>
+            <p class="cap">Microsoft Clarity 사용자 화면 분석 기준입니다. 위젯으로 결제한 회원 대상 NPS는 +15.8점이었습니다(사용 회원 34처 중 19명 응답).</p>
+          </div>
+
+          <p>마지막으로 타겟을 다시 봤습니다. 루틴 구매 회원 전체는 범위가 넓어 전환 효과가 낮았다고 판단했습니다. '주문 상품 다시 담기'를 월평균 15일 이상 쓰는 고의도 회원 53처로 타겟을 다시 정의했고, 이 중 다수가 아직 퀵오더를 써보지 않은 회원이라는 점을 확인했습니다.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 2 : AD PLATFORM -->
+<section class="case" id="case-ad" aria-labelledby="c2-title">
+  <div class="wrap">
+    <div class="case-intro">
+      <p class="case-tag"><b>대표 사례 2</b>더샵 광고주용 데이터센터</p>
+      <h2 id="c2-title">광고주가 직접 성과를 확인하는 광고 성과 플랫폼</h2>
+      <p class="lead">수기 보고서로 전달하던 광고 성과를, 광고주가 계정 없이 직접 조회하는 화면으로 바꿨습니다.</p>
+      <div class="meta">
+        <span><strong>역할</strong>KPI 설계, 화면 기능서, 판매후기 영역 정책 수립</span>
+        <span><strong>협업</strong>개발팀, 광고주, CH 전문가 자문</span>
+        <span><strong>도구</strong>Figma, Figma Make, Spotfire</span>
+      </div>
+    </div>
+
+    <div class="glance">
+      <div><h3>문제</h3><p>셀러툴에 광고 성과를 분석할 도구가 없어, Spotfire 수기 보고서로 대응하고 있었습니다.</p></div>
+      <div><h3>한 일</h3><p>KPI 체계, 화면 기능서, 판매후기 영역의 법적 대응 정책까지 플랫폼 전체를 기획했습니다.</p></div>
+      <div class="res"><h3>결과</h3><p>광고 성과 리포트 작성 시간이 20분에서 12초로 줄었습니다.</p></div>
+    </div>
+
+    <div class="story">
+      <aside class="rail" aria-hidden="true">
+        <p class="rail-t">이 사례의 흐름</p>
+        <ol>
+          <li><a href="#a1">발견</a></li>
+          <li><a href="#a2">정의</a></li>
+          <li><a href="#a3">가설과 검증</a></li>
+          <li><a href="#a4">결정</a></li>
+          <li><a href="#a5">출시</a></li>
+        </ol>
+      </aside>
+
+      <div>
+        <article class="chap" id="a1">
+          <p class="step">1 발견</p>
+          <h3>광고를 집행해도, 결과를 볼 곳이 없었습니다</h3>
+          <p>더샵 셀러툴에는 광고 성과를 분석하고 피드백할 도구가 없었습니다. 대웅 그룹사 대상 보고서는 Spotfire로 직접 만들었고, 데이터를 불러오는 데만 30분 이상 걸렸습니다.</p>
+          <p>광고주는 보고서를 받기 전까지 성과를 알 수 없었고, 다음 광고를 결정할 근거도 늦게 받았습니다.</p>
+        </article>
+
+        <article class="chap" id="a2">
+          <p class="step">2 정의</p>
+          <h3>보고서를 빨리 만드는 것이 아니라, 보고서가 필요 없게 만드는 문제로 봤습니다</h3>
+          <p>광고주가 셀러툴 계정 없이도 성과를 실시간으로 확인하고, SAP와 연동된 제약사도 접근할 수 있는 별도 채널이 필요하다고 정의했습니다.</p>
+          <ul class="okr">
+            <li><span>오픈 후 6개월 내 광고 재집행율</span><span>50%</span></li>
+            <li><span>광고 성과 리포트 작성 시간</span><span>99% 단축</span></li>
+            <li><span>Spotfire 수기 보고서 업무 자동화</span><span>50% 이상</span></li>
+          </ul>
+        </article>
+
+        <article class="chap" id="a3">
+          <p class="step">3 가설과 검증</p>
+          <h3>광고주가 움직일 수 있는 지표와 결과 지표를 나눴습니다</h3>
+          <p>핵심 KPI를 구매 전환율로 정했습니다. 광고주가 조정할 수 있는 인풋 지표와, 그 결과로 나타나는 아웃풋 지표를 분리해 화면을 설계했습니다.</p>
+          <div class="kpi">
+            <div><h4>인풋 지표</h4><ul><li>로그인 수</li><li>노출 수</li><li>클릭 수</li><li>랜딩 진입률</li></ul></div>
+            <div><h4>아웃풋 지표</h4><ul><li class="core">구매 전환율 (핵심 KPI)</li><li>광고 매출</li><li>재구매율</li><li>평균 구매금액</li></ul></div>
+          </div>
+          <p style="margin-top:22px">초기에는 매출 관점(ROAS)으로 시작하고, 이후 마진 관점으로 확장하는 로드맵을 세웠습니다. 바로팜 파트너센터, 네이버쇼핑 광고 리포트, 카카오스타일 라운지를 벤치마킹했습니다.</p>
+          <p>화면은 빠르게 만들어 보고 의견을 받는 방식으로 검증했습니다. 1차 목업은 Claude 아티팩트로, 2차는 Figma Make로 만들었습니다. CH 전문가 자문에서 대면처와 비대면처 매출을 구분하는 체계가 필요하다는 의견을 받아 설계에 반영했습니다.</p>
+          <figure class="shot">
+            <button class="zoom" type="button" aria-label="이미지 크게 보기"><img src="assets/img/ad-dashboard.webp" alt="데이터센터 마케팅 성과 대시보드 화면. 접점 방식 필터, 핵심 성과지표, CTR과 CVR 추이 차트" width="1156" height="931" loading="lazy"></button>
+            <figcaption>마케팅 성과 대시보드 설계 화면입니다. 자문 내용을 반영해 접점 방식(대면처, 비대면처) 필터를 넣었습니다.</figcaption>
+          </figure>
+          
+        </article>
+
+        <article class="chap" id="a4">
+          <p class="step">4 결정</p>
+          <h3>한 광고주의 요청과 플랫폼의 원칙이 부딪혔습니다</h3>
+          <p>한 광고주가 자사만의 구분값을 화면에 넣어달라고 요청했습니다. 모든 광고주가 함께 보는 일반화된 플랫폼이라는 기획 의도와 맞지 않았습니다.</p>
+          <p>공통 화면은 유지하고, 광고주별로 설정할 수 있는 커스터마이징 기능을 추가하는 방식으로 대응했습니다.</p>
+          <p>판매후기와 AI 분석 결과를 공급사가 볼 수 있는 영역도 추가로 기획했습니다. 이때 개인정보 노출, 목적외 이용, 제3자 제공, 명예훼손, 영업비밀, AI 결과에 대한 책임, 권한 관리 이슈를 먼저 정리하고 대응 정책을 세웠습니다.</p>
+        </article>
+
+        <article class="chap" id="a5">
+          <p class="step">5 출시</p>
+          <h3>수기 보고서를 광고주 직접 조회 구조로 바꿨습니다</h3>
+          <p>로그인, 메인 대시보드, 관리자 화면까지 화면 기능서를 Figma로 작성해 개발팀에 전달했습니다.</p>
+          <figure class="shot">
+            <button class="zoom" type="button" aria-label="이미지 크게 보기"><img src="assets/img/ad-spec-overview.webp" alt="Figma로 작성한 광고 성과 플랫폼 화면 기능서. 로그인 페이지, 메인 페이지, 관리자 화면과 기능 설명" width="1565" height="1025" loading="lazy"></button>
+            <figcaption>Figma로 작성한 화면 기능서입니다. 화면마다 기능 설명과 예외 상황을 함께 정리했습니다.</figcaption>
+          </figure>
+          
+          <div class="figure">
+            <div class="ba">
+              <p class="ba-title">광고 성과 리포트 작성 시간</p>
+              <div class="ba-row"><span class="lab">수기 보고서</span><span class="bar" style="width:100%"></span><span class="val">20분</span></div>
+              <div class="ba-row"><span class="lab">데이터센터</span><span class="bar after" style="width:1.5%;min-width:6px"></span><span class="val">12초</span></div>
+            </div>
+          </div>
+          <p>광고 재집행율 50%는 오픈 후 6개월 동안 추적할 목표로 두었습니다.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 3 : SPOTFIRE BOT -->
+<section class="case" id="case-bot" aria-labelledby="c3-title">
+  <div class="wrap">
+    <div class="case-intro">
+      <p class="case-tag"><b>대표 사례 3</b>기획팀 분석 자동화</p>
+      <h2 id="c3-title">분석이 멈추던 전처리를, 팀이 함께 쓰는 AI 봇으로</h2>
+      <p class="lead">퀵오더 로그를 분석하다 막힌 지점을, 파이썬을 몰라도 쓸 수 있는 도구로 만들었습니다.</p>
+      <div class="meta">
+        <span><strong>역할</strong>문제 정의, 봇 설계 및 학습, 동료 테스트, 팀 교육</span>
+        <span><strong>도구</strong>ChatGPT 커스텀 GPT, Spotfire, Python</span>
+      </div>
+    </div>
+
+    <div class="glance">
+      <div><h3>문제</h3><p>Spotfire 기본 기능으로 풀리지 않는 전처리가 반복됐고, 파이썬을 모르면 분석이 멈췄습니다.</p></div>
+      <div><h3>한 일</h3><p>컬럼명과 목적만 넣으면 실행 코드와 매뉴얼이 나오는 커스텀 봇을 만들고 팀에 배포했습니다.</p></div>
+      <div class="res"><h3>결과</h3><p>데이터 전처리 시간이 30~60분에서 10분으로 줄었습니다.</p></div>
+    </div>
+
+    <div class="story">
+      <aside class="rail" aria-hidden="true">
+        <p class="rail-t">이 사례의 흐름</p>
+        <ol>
+          <li><a href="#b1">발견</a></li>
+          <li><a href="#b2">정의</a></li>
+          <li><a href="#b3">가설과 검증</a></li>
+          <li><a href="#b4">결정</a></li>
+          <li><a href="#b5">출시</a></li>
+        </ol>
+      </aside>
+
+      <div>
+        <article class="chap" id="b1">
+          <p class="step">1 발견</p>
+          <h3>퀵오더 사용 흐름을 보려는데, 로그가 한 칸에 붙어 있었습니다</h3>
+          <p>퀵오더 사용 로그는 Grafana로 실시간 확인만 가능했습니다. 저장된 데이터에는 모달 열기, 리스트 담기, 주문 클릭 이력이 한 셀에 붙어 있어 사용 흐름을 해석할 수 없었습니다.</p>
+          <p>VC 주문 데이터의 주문번호도 여러 건이 한 값으로 붙어 나오는 등, 비슷한 문제가 다른 분석에서도 반복됐습니다.</p>
+          <figure class="shot small">
+            <button class="zoom" type="button" aria-label="이미지 크게 보기"><img src="assets/img/bot-order-num.webp" alt="order_num_list 컬럼에 여러 주문번호가 파이프 기호로 붙어 있는 데이터 예시" width="1141" height="588" loading="lazy"></button>
+            <figcaption>주문번호 여러 건이 한 셀에 붙어 있던 실제 데이터입니다. 이 상태로는 주문 단위 분석이 불가능했습니다.</figcaption>
+          </figure>
+          
+        </article>
+
+        <article class="chap" id="b2">
+          <p class="step">2 정의</p>
+          <h3>개인의 실력 문제가 아니라, 팀의 반복 비용으로 봤습니다</h3>
+          <p>Spotfire 내장 기능으로는 나눌 수 없어 파이썬 코드가 필요했습니다. 파이썬을 모르는 기획자는 이 단계에서 분석을 멈추거나 개발팀에 요청해야 했습니다.</p>
+          <p>각자 파이썬을 배우는 것보다, 누가 써도 같은 결과를 얻는 방식이 팀에 필요하다고 정의했습니다.</p>
+        </article>
+
+        <article class="chap" id="b3">
+          <p class="step">3 가설과 검증</p>
+          <h3>요구사항을 넣으면 실행 코드가 나오는 봇을 만들었습니다</h3>
+          <p>데이터 컬럼명과 분석 목적을 입력하면, Spotfire에 바로 적용할 수 있는 파이썬 코드와 변수별 상세 매뉴얼이 함께 나오도록 ChatGPT 커스텀 봇을 학습시켰습니다.</p>
+          <div class="figure">
+            <div class="io">
+              <div><h4>기획자가 입력하는 것</h4>데이터 컬럼명<br>분석 목적 (예: 한 셀에 붙은 이벤트 이력을 행 단위로 나누기)</div>
+              <div><h4>봇이 돌려주는 것</h4>Spotfire 데이터 함수에 붙여 넣을 파이썬 코드<br>변수별 설명과 적용 순서 매뉴얼</div>
+            </div>
+          </div>
+          <p>완성 후 기획팀 동료에게 실제 데이터로 사용 테스트를 진행했습니다.</p>
+        </article>
+
+        <article class="chap" id="b4">
+          <p class="step">4 결정</p>
+          <h3>코드만 주지 않고, 매뉴얼을 함께 주기로 했습니다</h3>
+          <p>AI를 요구사항과 실행 코드 사이의 번역기로 두는 구조가 가장 안정적이었습니다. 코드만 받으면 오류가 났을 때 다시 막히기 때문에, 변수 설명과 적용 순서를 함께 출력하도록 했습니다.</p>
+          <p>개인이 쓰는 도구로 끝내지 않기 위해 팀원 대상 Spotfire 교육을 두 차례 진행했습니다.</p>
+        </article>
+
+        <article class="chap" id="b5">
+          <p class="step">5 출시</p>
+          <h3>퀵오더 사용성 분석에 바로 썼습니다</h3>
+          <div class="figure">
+            <div class="ba">
+              <p class="ba-title">데이터 전처리 시간</p>
+              <div class="ba-row"><span class="lab">기존</span><span class="bar" style="width:100%"></span><span class="val">30~60분</span></div>
+              <div class="ba-row"><span class="lab">봇 사용</span><span class="bar after" style="width:22%"></span><span class="val">10분</span></div>
+            </div>
+            <div class="ba">
+              <p class="ba-title">Spotfire와 파이썬 사전 학습 시간</p>
+              <div class="ba-row"><span class="lab">기존</span><span class="bar" style="width:100%"></span><span class="val">30분</span></div>
+              <div class="ba-row"><span class="lab">봇 사용</span><span class="bar after" style="width:0;min-width:6px"></span><span class="val">0분</span></div>
+            </div>
+            <p class="cap">전처리 오류율은 30% 감소했습니다.</p>
+          </div>
+          <p>대표 사례 1의 퀵오더 사용 흐름 분석이 이 봇으로 가능해졌습니다. 기획 과제에서 막힌 지점을 도구로 풀고, 그 도구를 다시 기획에 쓴 경험입니다.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MORE -->
+<section class="sec" id="more" aria-labelledby="more-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="more-title">추가 경험</h2>
+      <p>같은 방식으로 진행한 프로젝트입니다. 대표 사례보다 범위가 작거나, 검증 단계에서 멈춘 과제입니다.</p>
+    </div>
+    <div class="more">
+      <article>
+        <h3>이탈처 예측 분석</h3>
+        <p class="sub">더샵 회원 이탈 조기 경고</p>
+        <dl>
+          <dt>배경</dt><dd>2025년 3월 유통 이슈로 약사 채널의 이탈 우려가 커졌습니다.</dd>
+          <dt>한 일</dt><dd>회원 그룹별 로그인 주기와 주문 주기 기준선을 도출하고, 이탈 점수(0~1) 매트릭스로 위험 수준을 나눴습니다.</dd>
+          <dt>과정</dt><dd>1차 단순 통계 로직을 영업부에 일간 공유하다 첫 주문 후 재주문 없는 케이스에서 한계를 발견해 2차 기준을 다시 설계했습니다.</dd>
+        </dl>
+      </article>
+      <article>
+        <h3>SLA 평가 대시보드</h3>
+        <p class="sub">더샵플러스 유통 품질 관리, Looker</p>
+        <dl>
+          <dt>배경</dt><dd>구색, 최저가, 반품, 품절약을 관리할 공통 기준이 없어 데이터 재조회와 책임 소재 문제가 반복됐습니다.</dd>
+          <dt>한 일</dt><dd>SLA 지표 4가지를 정의하고, n8n으로 매일 오전 7시 구글시트를 갱신해 Looker로 시각화하는 구조를 만들었습니다.</dd>
+          <dt>과정</dt><dd>자동 갱신 시 수식이 깨지는 문제를 '가공용' 탭을 따로 두어 해결했습니다.</dd>
+        </dl>
+      </article>
+      <article>
+        <h3>입고요청 대시보드</h3>
+        <p class="sub">품절 상품 입고요청과 공급사 응답율</p>
+        <dl>
+          <dt>배경</dt><dd>의약품 수급 불안 속에서 회원의 입고요청에 공급사가 얼마나 응답하는지 볼 수 없었습니다.</dd>
+          <dt>한 일</dt><dd>약사, 공급사, 더샵 각각의 이득을 기준으로 입고요청 순위, 공급사 응답 소요시간 대시보드를 기획했습니다.</dd>
+          <dt>과정</dt><dd>개발팀과 SQL 조회조건과 채널별 데이터 조인 구조를 정의하고, 대시보드별 매뉴얼을 만들었습니다.</dd>
+        </dl>
+      </article>
+      <article>
+        <h3>냉장의약품 RFID 재고관리</h3>
+        <p class="sub">병원몰 재고관리 자동화 검토</p>
+        <dl>
+          <dt>배경</dt><dd>더샵 매출의 61%가 냉장의약품이었지만, 병의원 재고관리는 수기 중심이었습니다.</dd>
+          <dt>한 일</dt><dd>진료과별 사용량을 분석하고, 수수료 수익과 태그비, 리더기 비용을 비교한 BEP 분석으로 리더기 무상 제공 대상 기준을 설계했습니다.</dd>
+          <dt>복기</dt><dd>확보 가능한 제품이 대부분 상온 제품이라 목적에 맞는 실험군을 구하기 어려웠다는 구조적 한계를 확인했습니다.</dd>
+        </dl>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact" aria-labelledby="ct-title">
+  <div class="wrap">
+    <h2 id="ct-title">데이터에서 문제를 찾고, 화면으로 끝내는 기획을 함께하고 싶습니다.</h2>
+    <p>포지션이나 프로젝트에 관해 편하게 연락해 주세요.</p>
+    <div class="cta">
+      <!-- TODO: 실제 이메일과 링크로 바꿔주세요 -->
+      <a class="btn primary" href="mailto:your.email@example.com">이메일 보내기</a>
+      <a class="btn" href="https://github.com/your-id">GitHub</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<dialog class="lb" id="lb" aria-label="확대 이미지">
+  <img src="" alt="">
+  <button type="button" aria-label="닫기">×</button>
+</dialog>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 권나영</span>
+    <a href="#top">맨 위로</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // 이미지 확대
+  var lb=document.getElementById('lb'), lbImg=lb.querySelector('img');
+  document.querySelectorAll('.zoom').forEach(function(b){
+    b.addEventListener('click',function(){
+      var im=b.querySelector('img'); lbImg.src=im.src; lbImg.alt=im.alt;
+      if(lb.showModal) lb.showModal(); else window.open(im.src);
+    });
+  });
+  lb.querySelector('button').addEventListener('click',function(){lb.close()});
+  lb.addEventListener('click',function(e){ if(e.target===lb) lb.close(); });
+})();
+(function(){
+  // 사례별 흐름 표시: 현재 읽는 단계를 왼쪽 레일에 표시
+  if(!('IntersectionObserver' in window)){ return; }
+  var chaps = document.querySelectorAll('.chap');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var id = e.target.id;
+      var story = e.target.closest('.story');
+      story.querySelectorAll('.rail a').forEach(function(a){
+        a.classList.toggle('on', a.getAttribute('href') === '#'+id);
+      });
+    });
+  }, {rootMargin:'-35% 0px -55% 0px'});
+  chaps.forEach(function(c){ io.observe(c); });
+
+  // 상단 메뉴 현재 위치 표시
+  var map = {'records':'#records','case-quick':'#cases','case-ad':'#cases','case-bot':'#cases','more':'#more','contact':'#contact'};
+  var navLinks = document.querySelectorAll('.nav a');
+  var io2 = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var target = map[e.target.id];
+      navLinks.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === target); });
+    });
+  }, {rootMargin:'-40% 0px -55% 0px'});
+  Object.keys(map).forEach(function(id){ var el=document.getElementById(id); if(el) io2.observe(el); });
+
+  // 표지 위에서는 헤더를 어둡게, 맨 위에서는 투명하게
+  var hdr = document.getElementById('hdr'), cover = document.getElementById('top');
+  function syncHeader(){
+    var onCover = cover.getBoundingClientRect().bottom > 60;
+    hdr.classList.toggle('dark', onCover);
+    hdr.classList.toggle('solid', onCover && window.scrollY > 8);
+  }
+  window.addEventListener('scroll', syncHeader, {passive:true});
+  syncHeader();
+})();
+</script>
+</body>
+</html>
