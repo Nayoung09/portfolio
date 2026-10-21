@@ -216,6 +216,10 @@ h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700}
 .lb button{position:fixed;top:16px;right:20px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.9);font-size:22px;cursor:pointer}
 .chap{min-width:0}
 
+button.btn{font:inherit;font-weight:600;font-size:15px;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:32px;transform:translate(-50%,16px);background:var(--ink);color:#fff;padding:12px 20px;border-radius:999px;font-size:15px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:50}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
 /* more work */
 .more{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .more article{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:26px}
@@ -463,7 +467,7 @@ footer a{color:var(--muted)}
           <h3>알림을 밀어붙이지 않고, 화면을 바꿨습니다</h3>
           <p>인터뷰에서 선호한 재고와 품절 정보를 퀵오더 화면에 바로 표시했습니다.</p>
           <figure class="shot">
-            <button class="zoom" type="button" aria-label="이미지 크게 보기"><img src="assets/img/qo-screen.webp" alt="퀵오더 화면. 왼쪽에 최근 주문 상품과 즐겨찾기 탭, 가운데에 가격, 재고, 공급사, 수량, 담기 버튼, 오른쪽에 결제 정보" width="1600" height="1067" loading="lazy"></button>
+            <button class="zoom" type="button" aria-label="이미지 크게 보기"><img src="assets/img/qo-screen.webp" alt="퀵오더 화면. 왼쪽에 최근 주문 상품과 즐겨찾기 탭, 가운데에 가격, 재고, 공급사, 수량, 담기 버튼, 오른쪽에 결제 정보" width="1600" height="1068" loading="lazy"></button>
             <figcaption>실제 배포된 퀵오더 화면입니다. 상품마다 재고를 바로 보여주고, 담은 상품을 오른쪽에서 바로 결제할 수 있게 했습니다.</figcaption>
           </figure>
           
@@ -577,7 +581,7 @@ footer a{color:var(--muted)}
           <p style="margin-top:22px">초기에는 매출 관점(ROAS)으로 시작하고, 이후 마진 관점으로 확장하는 로드맵을 세웠습니다. 바로팜 파트너센터, 네이버쇼핑 광고 리포트, 카카오스타일 라운지를 벤치마킹했습니다.</p>
           <p>화면은 빠르게 만들어 보고 의견을 받는 방식으로 검증했습니다. 1차 목업은 Claude 아티팩트로, 2차는 Figma Make로 만들었습니다. CH 전문가 자문에서 대면처와 비대면처 매출을 구분하는 체계가 필요하다는 의견을 받아 설계에 반영했습니다.</p>
           <figure class="shot">
-            <button class="zoom" type="button" aria-label="이미지 크게 보기"><img src="assets/img/ad-dashboard.webp" alt="데이터센터 마케팅 성과 대시보드 화면. 접점 방식 필터, 핵심 성과지표, CTR과 CVR 추이 차트" width="1156" height="931" loading="lazy"></button>
+            <button class="zoom" type="button" aria-label="이미지 크게 보기"><img src="assets/img/ad-dashboard.webp" alt="데이터센터 마케팅 성과 대시보드 화면. 접점 방식 필터, 핵심 성과지표, CTR과 CVR 추이 차트" width="1600" height="1288" loading="lazy"></button>
             <figcaption>마케팅 성과 대시보드 설계 화면입니다. 자문 내용을 반영해 접점 방식(대면처, 비대면처) 필터를 넣었습니다.</figcaption>
           </figure>
           
@@ -762,9 +766,7 @@ footer a{color:var(--muted)}
     <h2 id="ct-title">데이터에서 문제를 찾고, 화면으로 끝내는 기획을 함께하고 싶습니다.</h2>
     <p>포지션이나 프로젝트에 관해 편하게 연락해 주세요.</p>
     <div class="cta">
-      <!-- TODO: 실제 이메일과 링크로 바꿔주세요 -->
-      <a class="btn primary" href="mailto:your.email@example.com">이메일 보내기</a>
-      <a class="btn" href="https://github.com/your-id">GitHub</a>
+      <button class="btn primary" type="button" id="copyMail" data-mail="ksoonykny@naver.com">이메일 보내기</button>
     </div>
   </div>
 </section>
@@ -776,6 +778,8 @@ footer a{color:var(--muted)}
   <button type="button" aria-label="닫기">×</button>
 </dialog>
 
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
 <footer>
   <div class="wrap">
     <span>© 2026 권나영</span>
@@ -784,6 +788,30 @@ footer a{color:var(--muted)}
 </footer>
 
 <script>
+(function(){
+  // 이메일 복사
+  var btn=document.getElementById('copyMail'), toast=document.getElementById('toast'), timer;
+  function show(msg){
+    toast.textContent=msg; toast.classList.add('show');
+    clearTimeout(timer); timer=setTimeout(function(){toast.classList.remove('show')},2000);
+  }
+  function fallback(text){
+    var t=document.createElement('textarea'); t.value=text; t.setAttribute('readonly','');
+    t.style.position='fixed'; t.style.opacity='0'; document.body.appendChild(t); t.select();
+    var ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+    document.body.removeChild(t); return ok;
+  }
+  btn.addEventListener('click',function(){
+    var mail=btn.getAttribute('data-mail');
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(mail).then(function(){show('메일이 복사되었습니다.')},function(){
+        show(fallback(mail)?'메일이 복사되었습니다.':mail);
+      });
+    }else{
+      show(fallback(mail)?'메일이 복사되었습니다.':mail);
+    }
+  });
+})();
 (function(){
   // 이미지 확대
   var lb=document.getElementById('lb'), lbImg=lb.querySelector('img');
