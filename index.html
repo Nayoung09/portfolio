@@ -315,6 +315,26 @@ button.btn{font:inherit;font-weight:600;font-size:15px;cursor:pointer}
 .checked li::before{content:"";position:absolute;left:2px;top:15px;width:12px;height:7px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg)}
 @media print{.decision,.gr,.checked{break-inside:avoid}}
 
+/* table of contents */
+.toc-btn{font:inherit;font-size:14px;font-weight:600;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.top.dark .toc-btn{background:transparent;color:var(--on-deep);border-color:rgba(238,243,240,.35)}
+.toc{position:fixed;top:0;right:0;bottom:0;width:min(420px,92vw);z-index:60;background:var(--surface);box-shadow:-20px 0 40px -20px rgba(0,0,0,.35);transform:translateX(100%);visibility:hidden;transition:transform .3s ease,visibility 0s .3s;overflow-y:auto}
+.toc.open{transform:none;visibility:visible;transition:transform .3s ease}
+.toc-dim{position:fixed;inset:0;z-index:55;background:rgba(10,20,18,.4)}
+.toc-in{padding:24px 28px 40px}
+.toc-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.toc-head h2{font-size:22px;font-weight:800;letter-spacing:-.02em}
+.toc-close{font-size:26px;line-height:1;border:0;background:none;cursor:pointer;color:var(--muted);width:40px;height:40px}
+.toc-list{list-style:none;margin:0;padding:0}
+.toc-list > li{padding:14px 0;border-top:1px solid var(--line)}
+.toc-list > li > a{display:flex;gap:12px;align-items:baseline;font-weight:700;font-size:17px;color:var(--ink);text-decoration:none}
+.tn{font-size:13px;color:var(--accent);font-variant-numeric:tabular-nums}
+.toc-list ul{list-style:none;margin:8px 0 0 33px;padding:0;display:flex;flex-wrap:wrap;gap:4px 14px}
+.toc-list ul a{font-size:14px;color:var(--muted);text-decoration:none}
+.toc a:hover{color:var(--accent)}
+@media (max-width:720px){.toc-btn{padding:5px 11px}}
+#brand{cursor:pointer}
+
 /* more work */
 .more{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .more article{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:6px;padding:26px}
@@ -336,7 +356,9 @@ button.btn{font:inherit;font-weight:600;font-size:15px;cursor:pointer}
 .tools{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .tools li{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:6px}
 .ti{flex:none;width:36px;height:36px;display:grid;place-items:center;border-radius:8px;background:var(--bg)}
-.ti svg{width:20px;height:20px}
+.ti svg{width:22px;height:22px}
+.ti img{width:22px;height:22px;display:block}
+.ti .mono{width:36px;height:36px}
 .mono{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;color:#fff;font-size:12px;font-weight:800;letter-spacing:-.02em}
 .tools b{display:block;font-size:15px;line-height:1.35}
 .tools small{display:block;font-size:13px;color:var(--muted);line-height:1.4}
@@ -356,7 +378,12 @@ footer a{color:var(--muted)}
   @page{size:A4;margin:0}
   html,body{background:var(--bg)!important}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important;transition:none!important}
-  .intro,.top,.progress,.rail,.intro-skip,.cta,.toast,.lb,.skip{display:none!important}
+  .intro,.top,.progress,.rail,.intro-skip,.cta,.toast,.lb,.skip,.toc-dim,.toc-close{display:none!important}
+  .toc{position:static;transform:none;visibility:visible;width:auto;box-shadow:none;background:var(--bg);overflow:visible;break-after:page;padding:56px 0}
+  .toc-in{max-width:1120px;margin:0 auto;padding:0 24px}
+  .toc-head h2{font-size:40px}
+  .toc-list > li > a{font-size:22px}
+  .toc-list ul a{font-size:16px}
   html.intro-on body{overflow:visible}
   .cover{min-height:100vh;padding:72px 0 64px;break-after:page}
   .cover h1{font-size:72px!important}
@@ -401,12 +428,13 @@ footer a{color:var(--muted)}
 <div class="progress" aria-hidden="true"><i id="prog"></i></div>
 <header class="top dark" id="hdr">
   <div class="wrap">
-    <a class="brand" href="#top">권나영<span>서비스 기획</span></a>
+    <a class="brand" href="#top" id="brand" title="오프닝 다시 보기">권나영<span>서비스 기획자</span></a>
     <nav class="nav" aria-label="주요 메뉴">
       <a href="#records">이력</a>
       <a href="#cases">대표 사례</a>
       <a href="#more" class="hide-sm">추가 경험</a>
       <a href="#contact">연락</a>
+      <button class="toc-btn" type="button" id="tocBtn" aria-controls="toc" aria-expanded="false">목차</button>
     </nav>
   </div>
 </header>
@@ -445,6 +473,25 @@ footer a{color:var(--muted)}
   </div>
 </section>
 
+
+<!-- TABLE OF CONTENTS -->
+<aside class="toc" id="toc" aria-label="전체 목차">
+  <div class="toc-in">
+    <div class="toc-head"><h2>목차</h2><button class="toc-close" type="button" id="tocClose" aria-label="목차 닫기">×</button></div>
+    <ol class="toc-list">
+      <li><a href="#records"><span class="tn">01</span>이력</a>
+        <ul><li><a href="#records">경력, 학력, 학습, 도구, 수상, 자격</a></li></ul></li>
+      <li><a href="#case-quick"><span class="tn">02</span>대표 사례 1. 퀵오더</a><ul><li><a href="#q1">1 발견</a></li><li><a href="#q2">2 정의</a></li><li><a href="#q3">3 가설과 검증</a></li><li><a href="#q4">4 결정</a></li><li><a href="#q5">5 출시</a></li></ul></li>
+      <li><a href="#case-ad"><span class="tn">03</span>대표 사례 2. 광고 성과 플랫폼</a><ul><li><a href="#a1">1 발견</a></li><li><a href="#a2">2 정의</a></li><li><a href="#a3">3 가설과 검증</a></li><li><a href="#a4">4 결정</a></li><li><a href="#a5">5 출시</a></li></ul></li>
+      <li><a href="#case-bot"><span class="tn">04</span>대표 사례 3. 코드메이커 봇</a><ul><li><a href="#b1">1 발견</a></li><li><a href="#b2">2 정의</a></li><li><a href="#b3">3 가설과 검증</a></li><li><a href="#b4">4 결정</a></li><li><a href="#b5">5 출시</a></li></ul></li>
+      <li><a href="#more"><span class="tn">05</span>추가 경험</a>
+        <ul><li><a href="#more">이탈처 예측, SLA 대시보드, 입고요청 대시보드, RFID</a></li></ul></li>
+      <li><a href="#contact"><span class="tn">06</span>연락</a></li>
+    </ol>
+  </div>
+</aside>
+<div class="toc-dim" id="tocDim" hidden></div>
+
 <!-- RECORDS -->
 <section class="sec" id="records" style="border-top:0" aria-labelledby="rec-title">
   <div class="wrap">
@@ -457,7 +504,7 @@ footer a{color:var(--muted)}
         <h3>경력</h3>
         <ul class="rec">
           <li>
-            <span class="when">2025.01 ~ 2026.07 (1년 6개월)</span>
+            <span class="when">2025.01.02 ~ 2026.07.14 (1년 6개월)</span>
             <div class="t">더편한샵 (현 이지메디컴) 커머스기획</div>
             <div class="d">약국몰, 병원몰 기능 기획과 데이터 대시보드 구축. 화면 배치와 기능, 구동 방식은 화면기능서로 직접 작성했습니다.</div>
           </li>
@@ -476,16 +523,34 @@ footer a{color:var(--muted)}
             <div class="d">소프트웨어융합전공 복수전공</div>
           </li>
         </ul>
+        <h3 id="learning">학습</h3>
+        <ul class="rec">
+          <li>
+            <span class="when">2026.10 ~ 2026.11</span>
+            <div class="t">SQL 개발자(SQLD) 수업 수강</div>
+            <div class="d">쿼리 직접 작성 역량을 보완하기 위해 수강 중입니다.</div>
+          </li>
+          <li>
+            <div class="t">T1A e스포츠 사업 수업</div>
+            <div class="d">신사업 기획 발표: e스포츠 입시 컨설팅(PTU), 캠프형 프로그램(TCK), 가족 참여형 프로그램(T1 아케이드)</div>
+          </li>
+          <li>
+            <span class="when">2023.08</span>
+            <div class="t">빅데이터 애널리틱스 마이크로디그리 이수</div>
+            <div class="d">빅데이터 혁신융합대학 과정</div>
+          </li>
+        </ul>
+
         <h3>도구</h3>
         <ul class="tools">
-          <li><span class="ti"><span class="mono" style="background:#2E5E8C" aria-hidden="true">Sf</span></span><span><b>Spotfire</b><small>사내 데이터 분석, 사용성 분석</small></span></li>
-          <li><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M11.9475 0c-1.1598.0021-2.0982.944-2.096 2.1038a2.1 2.1 0 00.356 1.166l.895-.8959a.884.884 0 11.565.564l-.895.895c.9593.6478 2.2621.3953 2.91-.564.6478-.9593.3953-2.262-.564-2.91A2.096 2.096 0 0011.9475 0zm-.835 6.1128a3.2629 3.2629 0 00-.653-1.965l-1.164 1.162a1.667 1.667 0 01-.318 2.012l.632 1.5449a3.2819 3.2819 0 001.503-2.754zm-3.2499 1.666h-.03c-.9217.0009-1.6697-.7455-1.6707-1.6673-.001-.9217.7454-1.6697 1.6672-1.6707a1.669 1.669 0 01.9195.275l1.152-1.152c-1.4069-1.141-3.4724-.9257-4.6135.4811s-.9257 3.4723.481 4.6135a3.2799 3.2799 0 002.7275.6652l-.633-1.5439v-.001zm4.1279 1.3359c-.728 0-1.452.106-2.15.315l.922 2.2519c2.6872-.6819 5.4184.9438 6.1002 3.631.6818 2.6873-.9439 5.4184-3.6311 6.1002s-5.4184-.9439-6.1002-3.631c-.5682-2.2394.4655-4.5774 2.5041-5.6643l-.91-2.2449c-3.6908 1.808-5.2173 6.2657-3.4093 9.9567l.0005.001c1.808 3.6909 6.2657 5.2173 9.9567 3.4093l.001-.0005c3.6913-1.8071 5.2187-6.2645 3.4116-9.9558a7.4417 7.4417 0 00-6.6865-4.1696h-.008l-.001.001z"/></svg></span><span><b>Looker Studio</b><small>SLA 평가 대시보드</small></span></li>
-          <li><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#F46800" d="M23.02 10.59a8.578 8.578 0 0 0-.862-3.034 8.911 8.911 0 0 0-1.789-2.445c.337-1.342-.413-2.505-.413-2.505-1.292-.08-2.113.4-2.416.62-.052-.02-.102-.044-.154-.064-.22-.089-.446-.172-.677-.247-.231-.073-.47-.14-.711-.197a9.867 9.867 0 0 0-.875-.161C14.557.753 12.94 0 12.94 0c-1.804 1.145-2.147 2.744-2.147 2.744l-.018.093c-.098.029-.2.057-.298.088-.138.042-.275.094-.413.143-.138.055-.275.107-.41.166a8.869 8.869 0 0 0-1.557.87l-.063-.029c-2.497-.955-4.716.195-4.716.195-.203 2.658.996 4.33 1.235 4.636a11.608 11.608 0 0 0-.607 2.635C1.636 12.677.953 15.014.953 15.014c1.926 2.214 4.171 2.351 4.171 2.351.003-.002.006-.002.006-.005.285.509.615.994.986 1.446.156.19.32.371.488.548-.704 2.009.099 3.68.099 3.68 2.144.08 3.553-.937 3.849-1.173a9.784 9.784 0 0 0 3.164.501h.08l.055-.003.107-.002.103-.005.003.002c1.01 1.44 2.788 1.646 2.788 1.646 1.264-1.332 1.337-2.653 1.337-2.94v-.058c0-.02-.003-.039-.003-.06.265-.187.52-.387.758-.6a7.875 7.875 0 0 0 1.415-1.7c1.43.083 2.437-.885 2.437-.885-.236-1.49-1.085-2.216-1.264-2.354l-.018-.013-.016-.013a.217.217 0 0 1-.031-.02c.008-.092.016-.18.02-.27.011-.162.016-.323.016-.48v-.253l-.005-.098-.008-.135a1.891 1.891 0 0 0-.01-.13c-.003-.042-.008-.083-.013-.125l-.016-.124-.018-.122a6.215 6.215 0 0 0-2.032-3.73 6.015 6.015 0 0 0-3.222-1.46 6.292 6.292 0 0 0-.85-.048l-.107.002h-.063l-.044.003-.104.008a4.777 4.777 0 0 0-3.335 1.695c-.332.4-.592.84-.768 1.297a4.594 4.594 0 0 0-.312 1.817l.003.091c.005.055.007.11.013.164a3.615 3.615 0 0 0 .698 1.82 3.53 3.53 0 0 0 1.827 1.282c.33.098.66.14.971.137.039 0 .078 0 .114-.002l.063-.003c.02 0 .041-.003.062-.003.034-.002.065-.007.099-.01.007 0 .018-.003.028-.003l.031-.005.06-.008a1.18 1.18 0 0 0 .112-.02c.036-.008.072-.013.109-.024a2.634 2.634 0 0 0 .914-.415c.028-.02.056-.041.085-.065a.248.248 0 0 0 .039-.35.244.244 0 0 0-.309-.06l-.078.042c-.09.044-.184.083-.283.116a2.476 2.476 0 0 1-.475.096c-.028.003-.054.006-.083.006l-.083.002c-.026 0-.054 0-.08-.002l-.102-.006h-.012l-.024.006c-.016-.003-.031-.003-.044-.006-.031-.002-.06-.007-.091-.01a2.59 2.59 0 0 1-.724-.213 2.557 2.557 0 0 1-.667-.438 2.52 2.52 0 0 1-.805-1.475 2.306 2.306 0 0 1-.029-.444l.006-.122v-.023l.002-.031c.003-.021.003-.04.005-.06a3.163 3.163 0 0 1 1.352-2.29 3.12 3.12 0 0 1 .937-.43 2.946 2.946 0 0 1 .776-.101h.06l.07.002.045.003h.026l.07.005a4.041 4.041 0 0 1 1.635.49 3.94 3.94 0 0 1 1.602 1.662 3.77 3.77 0 0 1 .397 1.414l.005.076.003.075c.002.026.002.05.002.075 0 .024.003.052 0 .07v.065l-.002.073-.008.174a6.195 6.195 0 0 1-.08.639 5.1 5.1 0 0 1-.267.927 5.31 5.31 0 0 1-.624 1.13 5.052 5.052 0 0 1-3.237 2.014 4.82 4.82 0 0 1-.649.066l-.039.003h-.287a6.607 6.607 0 0 1-1.716-.265 6.776 6.776 0 0 1-3.4-2.274 6.75 6.75 0 0 1-.746-1.15 6.616 6.616 0 0 1-.714-2.596l-.005-.083-.002-.02v-.056l-.003-.073v-.096l-.003-.104v-.07l.003-.163c.008-.22.026-.45.054-.678a8.707 8.707 0 0 1 .28-1.355c.128-.444.286-.872.473-1.277a7.04 7.04 0 0 1 1.456-2.1 5.925 5.925 0 0 1 .953-.763c.169-.111.343-.213.524-.306.089-.05.182-.091.273-.135.047-.02.093-.042.138-.062a7.177 7.177 0 0 1 .714-.267l.145-.045c.049-.015.098-.026.148-.041.098-.029.197-.052.296-.076.049-.013.1-.02.15-.033l.15-.032.151-.028.076-.013.075-.01.153-.024c.057-.01.114-.013.171-.023l.169-.021c.036-.003.073-.008.106-.01l.073-.008.036-.003.042-.002c.057-.003.114-.008.171-.01l.086-.006h.023l.037-.003.145-.007a7.999 7.999 0 0 1 1.708.125 7.917 7.917 0 0 1 2.048.68 8.253 8.253 0 0 1 1.672 1.09l.09.077.089.078c.06.052.114.107.171.159.057.052.112.106.166.16.052.055.107.107.159.164a8.671 8.671 0 0 1 1.41 1.978c.012.026.028.052.04.078l.04.078.075.156c.023.051.05.1.07.153l.065.15a8.848 8.848 0 0 1 .45 1.34.19.19 0 0 0 .201.142.186.186 0 0 0 .172-.184c.01-.246.002-.532-.024-.856z"/></svg></span><span><b>Grafana</b><small>퀵오더 사용 로그 실시간 확인</small></span></li>
-          <li><span class="ti"><span class="mono" style="background:#5C4FD6" aria-hidden="true">Cl</span></span><span><b>Microsoft Clarity</b><small>사용자 화면 분석</small></span></li>
-          <li><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#F24E1E" d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg></span><span><b>Figma</b><small>화면 기능서, 와이어프레임</small></span></li>
-          <li><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4B71" d="M21.4737 5.6842c-1.1772 0-2.1663.8051-2.4468 1.8947h-2.8955c-1.235 0-2.289.893-2.492 2.111l-.1038.623a1.263 1.263 0 0 1-1.246 1.0555H11.289c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947s-2.1663.8051-2.4467 1.8947H4.973c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947C1.1311 9.4737 0 10.6047 0 12s1.131 2.5263 2.5263 2.5263c1.1772 0 2.1663-.8051 2.4468-1.8947h1.4223c.2804 1.0896 1.2696 1.8947 2.4467 1.8947 1.1772 0 2.1663-.8051 2.4468-1.8947h1.0008a1.263 1.263 0 0 1 1.2459 1.0555l.1038.623c.203 1.218 1.257 2.111 2.492 2.111h.3692c.2804 1.0895 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263c-1.1772 0-2.1664.805-2.4468 1.8947h-.3692a1.263 1.263 0 0 1-1.246-1.0555l-.1037-.623A2.52 2.52 0 0 0 13.9607 12a2.52 2.52 0 0 0 .821-1.4794l.1038-.623a1.263 1.263 0 0 1 1.2459-1.0555h2.8955c.2805 1.0896 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263m0 1.2632a1.263 1.263 0 0 1 1.2631 1.2631 1.263 1.263 0 0 1-1.2631 1.2632 1.263 1.263 0 0 1-1.2632-1.2632 1.263 1.263 0 0 1 1.2632-1.2631M2.5263 10.7368A1.263 1.263 0 0 1 3.7895 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 1.2632 12a1.263 1.263 0 0 1 1.2631-1.2632m6.3158 0A1.263 1.263 0 0 1 10.1053 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 7.579 12a1.263 1.263 0 0 1 1.2632-1.2632m10.1053 3.7895a1.263 1.263 0 0 1 1.2631 1.2632 1.263 1.263 0 0 1-1.2631 1.2631 1.263 1.263 0 0 1-1.2632-1.2631 1.263 1.263 0 0 1 1.2632-1.2632"/></svg></span><span><b>n8n</b><small>구글시트 데이터 자동 갱신</small></span></li>
-          <li><span class="ti"><span class="mono" style="background:#1F4E79" aria-hidden="true">Tb</span></span><span><b>Tableau</b><small>취업 데이터 시각화 공모전</small></span></li>
-          <li><span class="ti"><span class="mono" style="background:#5D6A66" aria-hidden="true">SQL</span></span><span><b>SQL</b><small>쿼리 해석, 데이터 정합성 확인</small></span></li>
+          <li><span class="ti"><img src="https://www.google.com/s2/favicons?domain=spotfire.com&amp;sz=64" alt="" width="22" height="22" onerror="this.outerHTML='&lt;span class=&quot;mono&quot; style=&quot;background:#2E5E8C&quot;&gt;Sf&lt;/span&gt;'"></span><span><b>Spotfire</b><small>사내 데이터 분석, 사용성 분석</small></span></li>
+          <li><span class="ti"><svg viewBox="0 0 256 239" aria-hidden="true"><path fill="#669df6" d="M224.022 173.159h-92.959c-22.48 0-35.07 15.736-35.07 32.485c0 15.455 10.679 32.484 35.07 32.484h92.959z"/><ellipse cx="224.022" cy="205.587" fill="#1a73e8" rx="31.979" ry="32.485"/><path fill="#669df6" d="M128.028 86.551H35.07C12.59 86.551 0 102.288 0 119.036c0 15.456 10.678 32.485 35.07 32.485h92.958z"/><ellipse cx="128.028" cy="119.036" fill="#1a73e8" rx="31.979" ry="32.485"/><path fill="#669df6" d="M224.022 0h-92.959c-22.48 0-35.07 15.737-35.07 32.485c0 15.455 10.679 32.485 35.07 32.485h92.959z"/><ellipse cx="224.022" cy="32.485" fill="#1a73e8" rx="31.979" ry="32.485"/></svg></span><span><b>Looker Studio</b><small>SLA 평가 대시보드</small></span></li>
+          <li><span class="ti"><svg viewBox="0 0 256 279" aria-hidden="true"><defs><linearGradient id="SVGzNMMBeHh" x1="49.995%" x2="49.995%" y1="122.45%" y2="31.139%"><stop offset="0%" stop-color="#fff100"/><stop offset="100%" stop-color="#f05a28"/></linearGradient></defs><path fill="url(#SVGzNMMBeHh)" d="M255.59 122.775c-.46-4.675-1.226-10.04-2.759-16.017a98 98 0 0 0-7.204-19.16a106.7 106.7 0 0 0-13.412-20.54c-2.222-2.681-4.675-5.287-7.28-7.816c3.908-15.558-4.752-29.046-4.752-29.046c-14.945-.92-24.448 4.675-27.973 7.204c-.613-.23-1.15-.537-1.763-.767c-2.529-.996-5.135-1.992-7.894-2.835a130 130 0 0 0-8.277-2.3c-2.835-.69-5.67-1.226-8.583-1.686c-.537-.076-.996-.153-1.533-.23C157.646 8.738 138.946 0 138.946 0c-20.922 13.258-24.831 31.805-24.831 31.805s-.077.383-.23 1.073c-1.15.307-2.299.69-3.449.996c-1.609.46-3.218 1.073-4.751 1.686a123 123 0 0 0-4.752 1.916a117 117 0 0 0-9.35 4.599c-2.989 1.686-5.9 3.525-8.737 5.441l-.766-.307c-28.97-11.036-54.643 2.223-54.643 2.223c-2.376 30.809 11.572 50.198 14.331 53.724c-.69 1.916-1.303 3.832-1.916 5.748c-2.146 6.974-3.755 14.101-4.751 21.535c-.154 1.073-.307 2.146-.384 3.219C7.894 146.916 0 173.97 0 173.97c22.302 25.674 48.359 27.283 48.359 27.283l.077-.076c3.295 5.9 7.127 11.495 11.419 16.783a112 112 0 0 0 5.671 6.362c-8.124 23.298 1.15 42.61 1.15 42.61c24.83.92 41.155-10.882 44.603-13.564a85 85 0 0 0 7.511 2.222a109.7 109.7 0 0 0 23.298 3.449c1.916.076 3.909.153 5.825.076h2.759l1.226-.076v.076c11.726 16.708 32.265 19.084 32.265 19.084c14.638-15.405 15.48-30.733 15.48-34.028v-1.38c3.066-2.145 5.979-4.445 8.738-6.974c5.824-5.288 10.959-11.342 15.25-17.857l1.15-1.839c16.554.92 28.28-10.27 28.28-10.27c-2.759-17.243-12.569-25.673-14.638-27.283c0 0-.077-.076-.23-.153s-.153-.153-.153-.153c-.077-.077-.23-.154-.383-.23c.076-1.073.153-2.07.23-3.142c.153-1.84.153-3.756.153-5.595v-2.913l-.077-1.149l-.076-1.533c0-.536-.077-.996-.154-1.456c-.076-.46-.076-.996-.153-1.456l-.153-1.456l-.23-1.456c-.307-1.916-.613-3.756-1.073-5.672c-1.763-7.433-4.675-14.484-8.43-20.845a70.4 70.4 0 0 0-14.025-16.707c-5.365-4.752-11.42-8.584-17.704-11.42c-6.36-2.835-12.952-4.675-19.543-5.518c-3.295-.46-6.59-.613-9.886-.536h-2.453l-1.226.077c-.46 0-.92.076-1.303.076a52 52 0 0 0-4.981.69c-6.591 1.226-12.799 3.602-18.24 6.897s-10.193 7.358-14.025 11.956a54.7 54.7 0 0 0-8.89 15.021a52.9 52.9 0 0 0-3.525 16.094c-.077 1.303-.077 2.683-.077 3.986v.996l.077 1.073c.076.613.076 1.303.153 1.916c.23 2.682.766 5.288 1.456 7.74c1.456 4.982 3.755 9.503 6.59 13.335s6.285 6.975 9.887 9.504c3.602 2.452 7.51 4.215 11.343 5.364c3.832 1.15 7.664 1.61 11.266 1.61h1.993c.23 0 .46 0 .689-.077c.383 0 .766-.077 1.15-.077c.076 0 .23 0 .306-.076l.383-.077c.23 0 .46-.076.69-.076c.46-.077.843-.154 1.303-.23s.843-.154 1.226-.307c.843-.153 1.61-.46 2.376-.69c1.533-.536 3.066-1.15 4.368-1.839c1.38-.69 2.606-1.533 3.832-2.3c.307-.23.69-.459.997-.766c1.226-.996 1.456-2.835.46-4.061c-.844-1.073-2.376-1.38-3.603-.69l-.92.46a25 25 0 0 1-3.295 1.38c-1.15.382-2.375.689-3.602.919c-.613.076-1.226.153-1.916.23c-.306 0-.613.076-.996.076h-1.84c-.383 0-.766 0-1.149-.076h-.46c-.153 0-.383 0-.536-.077c-.383-.077-.69-.077-1.073-.153c-2.836-.383-5.671-1.226-8.354-2.453a29.3 29.3 0 0 1-7.74-5.058c-2.376-2.146-4.445-4.675-6.055-7.587s-2.759-6.131-3.295-9.503c-.23-1.686-.383-3.449-.307-5.135c0-.46.077-.92.077-1.38v-.613c0-.23.077-.46.077-.69c.076-.919.23-1.839.383-2.758c1.303-7.358 4.981-14.562 10.653-20.003c1.456-1.38 2.988-2.606 4.598-3.755a31.7 31.7 0 0 1 5.211-2.99a36 36 0 0 1 5.672-2.068c1.915-.537 3.908-.844 5.977-1.073c.997-.077 1.993-.154 3.066-.154h2.376l.843.077c2.222.153 4.368.46 6.514.996c4.292.92 8.507 2.53 12.415 4.675c7.818 4.369 14.485 11.113 18.547 19.237c2.07 4.061 3.525 8.43 4.215 12.951c.153 1.15.307 2.3.383 3.45l.077.842l.077.843v3.296c0 .536-.077 1.456-.077 1.992c-.077 1.227-.23 2.53-.383 3.756s-.383 2.452-.613 3.678a50 50 0 0 1-.843 3.602a64 64 0 0 1-2.3 7.128a62.4 62.4 0 0 1-7.204 13.105c-5.9 8.124-13.948 14.715-23.144 18.93c-4.599 2.069-9.427 3.602-14.408 4.368c-2.453.46-4.982.69-7.511.766h-3.832a36 36 0 0 1-4.062-.23c-5.365-.383-10.653-1.379-15.864-2.835c-5.135-1.456-10.116-3.525-14.868-5.978c-9.427-5.058-17.933-11.956-24.524-20.31a79 79 0 0 1-8.584-13.334a79 79 0 0 1-5.671-14.638c-1.38-5.058-2.223-10.193-2.606-15.405l-.077-.996v-6.821c.077-2.529.307-5.211.614-7.817c.306-2.606.766-5.288 1.302-7.894c.537-2.605 1.15-5.211 1.916-7.817a103 103 0 0 1 5.442-14.791c4.368-9.35 10.04-17.704 16.86-24.371c1.686-1.686 3.449-3.22 5.288-4.752a78 78 0 0 1 5.748-4.138c1.916-1.303 3.985-2.453 6.055-3.526a40 40 0 0 1 3.142-1.533l3.219-1.379c2.146-.92 4.368-1.686 6.667-2.376c.537-.153 1.15-.306 1.686-.536c.537-.154 1.15-.307 1.686-.46c1.15-.307 2.3-.613 3.45-.843c.536-.153 1.149-.23 1.762-.383c.613-.154 1.15-.23 1.763-.384c.613-.076 1.15-.23 1.762-.306l.843-.153l.92-.154c.613-.076 1.15-.153 1.763-.23c.69-.076 1.302-.153 1.992-.23c.537-.076 1.456-.153 1.993-.23c.383-.076.843-.076 1.226-.153l.843-.076l.383-.077h.46c.69-.077 1.303-.077 1.993-.153l.996-.077h.767c.536 0 1.149-.076 1.685-.076a99 99 0 0 1 6.745 0c4.445.153 8.813.69 13.028 1.456c8.507 1.61 16.478 4.291 23.758 7.893c7.28 3.526 13.719 7.894 19.39 12.646c.383.306.69.613 1.073.92c.306.306.69.613.996.92c.69.612 1.303 1.225 1.993 1.838c.69.614 1.303 1.227 1.916 1.84a44 44 0 0 1 1.839 1.916c2.376 2.529 4.598 5.058 6.59 7.664a99 99 0 0 1 9.734 15.25l.46.92l.46.92c.306.613.613 1.226.843 1.84c.306.613.536 1.149.843 1.762c.23.613.536 1.15.766 1.763c.92 2.299 1.84 4.521 2.53 6.59c1.149 3.373 1.992 6.362 2.682 8.967a2.043 2.043 0 0 0 2.299 1.61c1.15-.077 1.992-.996 1.992-2.146c.077-2.759 0-6.054-.383-9.81"/></svg></span><span><b>Grafana</b><small>퀵오더 사용 로그 실시간 확인</small></span></li>
+          <li><span class="ti"><img src="https://www.google.com/s2/favicons?domain=clarity.microsoft.com&amp;sz=64" alt="" width="22" height="22" onerror="this.outerHTML='&lt;span class=&quot;mono&quot; style=&quot;background:#5C4FD6&quot;&gt;Cl&lt;/span&gt;'"></span><span><b>Microsoft Clarity</b><small>사용자 화면 분석</small></span></li>
+          <li><span class="ti"><svg viewBox="0 0 256 384" aria-hidden="true"><path fill="#0acf83" d="M64 384c35.328 0 64-28.672 64-64v-64H64c-35.328 0-64 28.672-64 64s28.672 64 64 64"/><path fill="#a259ff" d="M0 192c0-35.328 28.672-64 64-64h64v128H64c-35.328 0-64-28.672-64-64"/><path fill="#f24e1e" d="M0 64C0 28.672 28.672 0 64 0h64v128H64C28.672 128 0 99.328 0 64"/><path fill="#ff7262" d="M128 0h64c35.328 0 64 28.672 64 64s-28.672 64-64 64h-64z"/><path fill="#1abcfe" d="M256 192c0 35.328-28.672 64-64 64s-64-28.672-64-64s28.672-64 64-64s64 28.672 64 64"/></svg></span><span><b>Figma</b><small>화면 기능서, 와이어프레임</small></span></li>
+          <li><span class="ti"><svg viewBox="0 0 256 135" aria-hidden="true"><path fill="#ea4b71" d="M229.053 53.895c-12.557 0-23.107-8.588-26.099-20.21h-30.886a13.474 13.474 0 0 0-13.29 11.258l-1.107 6.645a26.9 26.9 0 0 1-8.757 15.78a26.9 26.9 0 0 1 8.757 15.78l1.107 6.646a13.474 13.474 0 0 0 13.29 11.259h3.939c2.992-11.623 13.542-20.21 26.098-20.21c14.883 0 26.948 12.064 26.948 26.946s-12.065 26.948-26.948 26.948c-12.556 0-23.107-8.588-26.098-20.21h-3.939c-13.173 0-24.415-9.524-26.58-22.518l-1.108-6.645a13.474 13.474 0 0 0-13.29-11.259h-10.676c-2.99 11.623-13.542 20.21-26.098 20.21c-12.557 0-23.107-8.587-26.099-20.21H53.046c-2.992 11.623-13.542 20.21-26.099 20.21C12.065 94.316 0 82.252 0 67.369s12.065-26.947 26.947-26.947c12.557 0 23.107 8.588 26.099 20.21h15.171c2.992-11.622 13.542-20.21 26.099-20.21c12.556 0 23.107 8.588 26.098 20.21h10.676a13.474 13.474 0 0 0 13.29-11.258l1.107-6.645c2.166-12.994 13.408-22.517 26.581-22.517h30.886C205.945 8.588 216.496 0 229.053 0C243.935 0 256 12.065 256 26.947s-12.065 26.948-26.947 26.948m0-13.474c7.441 0 13.473-6.032 13.473-13.474c0-7.441-6.032-13.473-13.473-13.473s-13.474 6.032-13.474 13.473s6.032 13.474 13.474 13.474M26.947 80.842c7.442 0 13.474-6.032 13.474-13.474c0-7.44-6.032-13.473-13.474-13.473c-7.441 0-13.473 6.032-13.473 13.473s6.032 13.474 13.473 13.474m80.842-13.474c0 7.442-6.032 13.474-13.473 13.474S80.842 74.81 80.842 67.368c0-7.44 6.032-13.473 13.474-13.473c7.441 0 13.473 6.032 13.473 13.473m107.79 40.421c0 7.442-6.032 13.474-13.474 13.474c-7.441 0-13.473-6.032-13.473-13.474c0-7.441 6.032-13.473 13.473-13.473s13.474 6.032 13.474 13.473"/></svg></span><span><b>n8n</b><small>구글시트 데이터 자동 갱신</small></span></li>
+          <li><span class="ti"><svg viewBox="0 0 256 251" aria-hidden="true"><path fill="#7099a6" d="M123.929 11.593v11.641h-20.82v7.571h20.82v23.186h8.139V30.805h21.341v-7.571h-21.341V0h-8.139z"/><path fill="#eb912c" d="M55.884 41.121v16.893H24.369v10.599h31.515v34.307h11.688V68.613H99.56V58.014H67.572V24.228H55.884z"/><path fill="#59879b" d="M187.953 41.121v16.893h-31.515v11.12h31.515v33.786h12.161V69.134h31.514v-11.12h-31.514V24.228h-12.161z"/><path fill="#e8762c" d="M120.901 98.661v18.928H85.837v14.101h35.064v37.855h14.196V131.69h35.063v-14.101h-35.063V79.733h-14.196z"/><path fill="#5b6591" d="M224.01 108.219v11.878h-21.341v9.605h21.341v23.707h10.647v-23.707h21.341v-9.605h-21.341V96.39H224.01z"/><path fill="#7099a6" d="M20.821 109.26v11.357H0v8.044h20.821v22.714h8.138v-22.714l21.341-.757v-7.287H28.959V97.904h-8.138z"/><path fill="#c72035" d="M55.884 162.731v16.893H24.369v11.12h31.515v33.786h12.161v-33.786H99.56v-11.12H68.045v-33.786H55.884z"/><path fill="#1f447e" d="M187.953 162.731v16.893h-31.515v10.6h31.515v34.306h12.161v-34.306h31.514v-10.6h-31.514v-33.786h-12.161z"/><path fill="#5b6591" d="M122.936 205.65v11.83h-21.341v9.606h21.341v23.707h10.647v-23.707h21.341v-9.606h-21.341v-23.707h-10.647z"/></svg></span><span><b>Tableau</b><small>취업 데이터 시각화 공모전</small></span></li>
+          <li><span class="ti"><svg style="color:#5D6A66" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4s8-1.79 8-4s-3.58-4-8-4M4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4m0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4"/></svg></span><span><b>SQL</b><small>쿼리 해석, 데이터 정합성 확인</small></span></li>
         </ul>
 
       </div>
@@ -507,10 +572,9 @@ footer a{color:var(--muted)}
 
         <h3>자격</h3>
         <ul class="rec">
-          <li><div class="t">ADsP 데이터분석 준전문가</div><div class="d">2024.03</div></li>
           <li><div class="t">TOEIC Speaking AL</div><div class="d">2026.09</div></li>
+          <li><div class="t">ADsP 데이터분석 준전문가</div><div class="d">2024.03</div></li>
           <li><div class="t">컴퓨터활용능력 2급</div><div class="d">2024.08</div></li>
-          <li><div class="t">빅데이터 애널리틱스 마이크로디그리 이수</div><div class="d">2023.08</div></li>
         </ul>
 
 
@@ -1001,28 +1065,46 @@ footer a{color:var(--muted)}
 
 <script>
 (function(){
-  // 오프닝: 1분 50초에서 36초로 줄어드는 타이머 후 표지로 이동
+  // 오프닝: 1분 50초에서 36초로 줄어드는 타이머 후 표지로 이동. 상단 이름을 누르면 다시 재생
   var root=document.documentElement, intro=document.getElementById('intro');
-  if(!root.classList.contains('intro-on')) return;
-  var tnum=document.getElementById('tnum'), from=110, to=36, timerId;
+  var tpl=intro.cloneNode(true), timers=[], raf, keyHandler;
   function fmt(v){ return Math.floor(v/60)+':'+('0'+v%60).slice(-2); }
-  setTimeout(function(){
-    var start=performance.now(), dur=1800;
-    (function tick(now){
-      var k=Math.min(1,(now-start)/dur), e=1-Math.pow(1-k,3);
-      tnum.textContent=fmt(Math.round(from-(from-to)*e));
-      if(k<1){ timerId=requestAnimationFrame(tick); } else { tnum.classList.add('done'); }
-    })(start);
-  },3700);
+  function clearAll(){ timers.forEach(clearTimeout); timers=[]; cancelAnimationFrame(raf); if(keyHandler) document.removeEventListener('keydown',keyHandler); }
+  function play(){
+    clearAll();
+    var fresh=tpl.cloneNode(true); intro.replaceWith(fresh); intro=fresh;
+    root.classList.add('intro-on');
+    var tnum=intro.querySelector('#tnum');
+    timers.push(setTimeout(function(){
+      var start=performance.now(), dur=1800;
+      (function tick(now){
+        var k=Math.min(1,(now-start)/dur), e=1-Math.pow(1-k,3);
+        tnum.textContent=fmt(Math.round(110-74*e));
+        if(k<1){ raf=requestAnimationFrame(tick); } else { tnum.classList.add('done'); }
+      })(start);
+    },3700));
+    intro.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click',close); });
+    keyHandler=function(e){ if(e.key==='Escape'||e.key==='Enter'){ close(); } };
+    document.addEventListener('keydown',keyHandler);
+    timers.push(setTimeout(function(){ var g=intro.querySelector('.intro-go'); if(g) g.focus({preventScroll:true}); },5800));
+  }
   function close(){
-    cancelAnimationFrame(timerId);
+    clearAll();
     try{ sessionStorage.setItem('introSeen','1'); }catch(e){}
     intro.classList.add('out');
-    setTimeout(function(){ root.classList.remove('intro-on'); intro.remove(); window.scrollTo(0,0); },650);
+    timers.push(setTimeout(function(){ root.classList.remove('intro-on'); intro.classList.remove('out'); window.scrollTo(0,0); },650));
   }
-  intro.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click',close); });
-  document.addEventListener('keydown',function k(e){ if(e.key==='Escape'||e.key==='Enter'){ document.removeEventListener('keydown',k); close(); } });
-  setTimeout(function(){ var g=intro.querySelector('.intro-go'); if(g) g.focus({preventScroll:true}); },5800);
+  if(root.classList.contains('intro-on')) play();
+  document.getElementById('brand').addEventListener('click',function(e){ e.preventDefault(); play(); });
+
+  // 목차 열고 닫기
+  var toc=document.getElementById('toc'), dim=document.getElementById('tocDim'), tb=document.getElementById('tocBtn');
+  function tocOpen(o){ toc.classList.toggle('open',o); dim.hidden=!o; tb.setAttribute('aria-expanded',o?'true':'false'); }
+  tb.addEventListener('click',function(){ tocOpen(!toc.classList.contains('open')); });
+  document.getElementById('tocClose').addEventListener('click',function(){ tocOpen(false); });
+  dim.addEventListener('click',function(){ tocOpen(false); });
+  toc.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ tocOpen(false); }); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') tocOpen(false); });
 })();
 (function(){
   // 이메일 복사
