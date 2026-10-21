@@ -1087,7 +1087,7 @@ footer a{color:var(--muted)}
 /* ===== 방문 및 클릭 기록 (Google 스프레드시트) =====
    Apps Script 웹 앱 주소(/exec로 끝나는 주소)를 아래 따옴표 안에 붙여 넣으면 기록이 시작됩니다.
    비워 두면 아무것도 기록하지 않습니다. */
-var LOG_URL = '';
+var LOG_URL = 'https://script.google.com/macros/s/AKfycbzwsMRWniML65jmMjBWT5RRBcWmQO4HuXe6uwifXwtGyZuFevYff0E63KhtYtYiHv3G/exec';
 (function(){
   var vid;
   try{ vid=localStorage.getItem('pf_vid'); if(!vid){ vid=Math.random().toString(36).slice(2,10); localStorage.setItem('pf_vid',vid); } }catch(e){ vid='no-storage'; }
