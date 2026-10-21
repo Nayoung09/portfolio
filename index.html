@@ -309,6 +309,11 @@ button.btn{font:inherit;font-weight:600;font-size:15px;cursor:pointer}
 }
 @media (max-width:820px){.glance.two{grid-template-columns:1fr}}
 
+.result-box{margin:8px 0 22px;padding:22px 24px;background:var(--deep);color:var(--on-deep);border-radius:12px}
+.rb-k{font-size:13px;font-weight:700;color:var(--mint)}
+.rb-t{margin:4px 0 8px;font-size:clamp(24px,3vw,32px);font-weight:800;letter-spacing:-.03em}
+.rb-b{margin:0;font-size:15px;line-height:1.65;color:var(--on-deep-muted)}
+@media print{.result-box{break-inside:avoid}}
 .decision{margin:24px 0;padding:20px 22px;background:var(--accent-soft);border-left:4px solid var(--accent);border-radius:0 8px 8px 0}
 .d-k{font-size:13px;font-weight:700;color:var(--accent)}
 .d-t{margin:6px 0 10px;font-size:18px;font-weight:700;line-height:1.55;letter-spacing:-.01em}
@@ -439,7 +444,7 @@ footer a{color:var(--muted)}
       <div class="im">
         <span class="im-k">긴급배송 사용률 변화</span>
         <span class="im-v"><span class="im-to" id="rnum">−0.0%p</span></span>
-        <span class="im-b">기능 출시 전후 비교</span>
+        <span class="im-b">출시 직전 2주 대비 출시 한 달 뒤 2주</span>
       </div>
     </div>
     <div class="il i-sign sign">
@@ -640,12 +645,12 @@ footer a{color:var(--muted)}
         <span class="ch-from">1분 50초</span>
         <span class="ch-to">36초</span>
         <span class="ch-s">주문 탐색부터 결제 완료까지 걸린 시간<br>테스트 회원 20명, 도입 전후 평균</span>
-        <span class="ch-extra"><b>31.1%p</b>기능 출시 전후 긴급배송 사용률 감소</span>
+        <span class="ch-extra"><b>31.1%p</b>긴급배송 사용률 감소<br>출시 직전 2주 대비 출시 한 달 뒤 2주</span>
       </div>
     </div>
 
     <div class="glance two">
-      <div><h3>문제</h3><p>자주 사는 상품을 매번 다시 찾아 주문하다 빠뜨리고, 긴급배송으로 메우고 있었습니다.</p></div>
+      <div><h3>문제</h3><p>일반배송보다 물류비가 3배 드는 긴급배송을 줄여야 했습니다. 원인은 자주 사는 상품을 매번 다시 찾다 빠뜨리는 주문 누락이었습니다.</p></div>
       <div><h3>한 일</h3><p>구매 루틴 기반 추천 리스트와 다시 구매하기 위젯을 기획하고 3차까지 배포했습니다.</p></div>
       <div class="res"><h3>결과</h3><p>주문 탐색부터 결제 완료까지 1분 50초에서 36초로 줄었습니다.</p></div>
     </div>
@@ -666,6 +671,7 @@ footer a{color:var(--muted)}
         <article class="chap" id="q1">
           <p class="step">1 발견</p>
           <h3>긴급배송을 쓰는 회원에게 이유를 물었습니다</h3>
+          <p>긴급배송은 일반배송보다 물류비가 3배 들어, 사용률을 줄여야 하는 과제가 있었습니다. 줄이려면 먼저 회원이 왜 긴급배송을 쓰는지 알아야 했습니다.</p>
           <p>VC 회원의 긴급배송 이용 사유를 설문으로 조사했습니다. '주문 누락'이라는 응답이 많았습니다.</p>
           <p>이 응답을 한 회원들의 구매 이력을 분석했습니다. 70% 이상이 1년 동안 같은 상품을 10회 이상 구매한 회원이었습니다. 늘 사는 상품일수록 매번 검색하고 담는 과정에서 빠뜨리고 있었습니다.</p>
           <figure class="shot">
@@ -678,18 +684,18 @@ footer a{color:var(--muted)}
         <article class="chap" id="q2">
           <p class="step">2 정의</p>
           <h3>일부의 실수가 아니라 절반 가까운 회원의 구조였습니다</h3>
-          <p>범위를 전체 회원으로 넓혀 2024년 데이터를 다시 봤습니다. 같은 ETC 상품을 10회 이상 구매한 회원은 8,586명이었습니다.</p>
+          <p>범위를 전체 회원으로 넓혀 2024년 데이터를 다시 봤습니다. 같은 ETC 상품을 10회 이상 구매한 회원이 매출 발생 회원의 46.8%였습니다.</p>
           <div class="figure">
-            <div class="share" role="img" aria-label="매출 발생 회원 18,356명 중 8,586명, 46.8%"><i style="width:46.8%"></i></div>
+            <div class="share" role="img" aria-label="매출 발생 회원 중 46.8%"><i style="width:46.8%"></i></div>
             <div class="share-legend">
-              <span><b>8,586명</b>동일 상품 10회 이상 구매</span>
-              <span style="text-align:right"><b>46.8%</b>매출 발생 회원 18,356명 중</span>
+              <span><b>46.8%</b>동일 상품 10회 이상 구매 회원</span>
+              <span style="text-align:right"><b>100%</b>매출 발생 회원 전체</span>
             </div>
           </div>
           <p>문제를 '반복 구매 상품을 다시 찾는 데 드는 시간과 누락'으로 정의하고, 세 가지 목표를 세웠습니다.</p>
           <ul class="okr">
             <li><span>퀵오더를 통한 주문 비중</span><span>50%</span></li>
-            <li><span>추천 루틴 리스트 사용 회원</span><span>75% (6,440명)</span></li>
+            <li><span>추천 루틴 리스트 사용 회원</span><span>75%</span></li>
             <li><span>VC 긴급배송 사용</span><span>40% 감소</span></li>
           </ul>
         </article>
@@ -734,25 +740,25 @@ footer a{color:var(--muted)}
             <li>
               <span class="when">2025.11 MVP 1차와 정착 프로모션</span>
               <h4>'3일 사용'을 정착 기준으로 삼았습니다</h4>
-              <p>꾸준히 쓰는 회원의 패턴을 분석해 3일 사용을 정착 기준으로 잡고, 달성 시 마일리지를 지급했습니다. 108처가 참여했고 40처가 3일 이상 반복 사용했으며, 종료 후에도 38처가 계속 사용했습니다.</p>
+              <p>꾸준히 쓰는 회원의 패턴을 분석해 3일 사용을 정착 기준으로 잡고, 달성 시 마일리지를 지급했습니다. 참여 약국의 37%가 3일 이상 반복 사용했고, 프로모션 종료 후에도 참여 약국의 35%가 계속 사용했습니다.</p>
               <figure class="shot small">
             <button class="zoom" type="button" aria-label="이미지 크게 보기"><img src="assets/img/qo-promotion.webp" alt="퀵오더 마일리지 프로모션 이벤트 페이지. 첫 사용 시 500P, 3일 사용 시 최대 1,500P 지급" width="800" height="482" loading="lazy"></button>
             <figcaption>정착 프로모션 이벤트 페이지입니다. 3일 사용 기준에 맞춰 보상을 설계했습니다.</figcaption>
           </figure>
           
-              <div class="limit"><b>확인한 한계</b>참여자의 74%가 이미 즐겨찾기를 쓰던 회원이었습니다. 멤버십 1,650처 중 즐겨찾기를 설정한 약국은 79처뿐이었습니다. 프로모션만으로는 새로운 사용자를 만들기 어려웠습니다.</div>
+              <div class="limit"><b>확인한 한계</b>참여자의 74%가 이미 즐겨찾기를 쓰던 회원이었습니다. 멤버십 약국 중 즐겨찾기를 설정한 약국은 5%에 못 미쳤습니다. 프로모션만으로는 새로운 사용자를 만들기 어려웠습니다.</div>
             </li>
             <li>
               <span class="when">2025.11.27 MVP 2차</span>
               <h4>일반회원으로 대상을 넓혔습니다</h4>
-              <p>추천 상품 계산 로직을 조정하고 '최근 주문 상품' 탭을 새로 만들었습니다. 새로 활성화된 7처 중 6처가 일반회원이어서, 멤버십 중심이던 방향을 일반회원까지 확장했습니다.</p>
+              <p>추천 상품 계산 로직을 조정하고 '최근 주문 상품' 탭을 새로 만들었습니다. 새로 활성화된 약국 대부분이 일반회원이어서, 멤버십 중심이던 방향을 일반회원까지 확장했습니다.</p>
             </li>
             <li>
               <span class="when">2026.01.08 MVP 3차</span>
               <h4>버튼과 설명 페이지를 고쳤습니다</h4>
-              <p>버튼 UI와 내부 설명 페이지를 개선했습니다. 배포 후 2주 동안 사용 전환율은 2차 배포 후 2주(14.9%)보다 높은 17.4%였고, 12처가 새로 유입됐습니다.</p>
+              <p>버튼 UI와 내부 설명 페이지를 개선했습니다. 배포 후 2주 동안 사용 전환율은 2차 배포 후 2주(14.9%)보다 높은 17.4%였습니다.</p>
               <p class="basis">사용 전환율은 퀵오더에 진입한 회원 중 실제 주문까지 한 회원의 비율입니다.</p>
-              <div class="chips"><span class="chip">전환율 14.9%에서 17.4%</span><span class="chip">신규 12처</span></div>
+              <div class="chips"><span class="chip">전환율 14.9%에서 17.4%</span></div>
             </li>
           </ol>
 
@@ -762,7 +768,7 @@ footer a{color:var(--muted)}
               <div class="ba-row"><span class="lab">기존 주문</span><span class="bar" style="width:100%"></span><span class="val">1분 50초</span></div>
               <div class="ba-row"><span class="lab">퀵오더</span><span class="bar after" style="width:32.7%"></span><span class="val">36초</span></div>
             </div>
-            <p class="cap">테스트 회원 20명 기준입니다. 같은 20명이 퀵오더 도입 전 주문할 때의 평균(1분 50초)과 퀵오더로 주문할 때의 평균(36초)을 Microsoft Clarity 화면 녹화로 비교했습니다. 위젯으로 결제한 회원 대상 NPS는 +15.8점이었고, 사용 회원 34처 중 19명이 응답했습니다.</p>
+            <p class="cap">테스트 회원 20명 기준입니다. 같은 20명이 퀵오더 도입 전 주문할 때의 평균(1분 50초)과 퀵오더로 주문할 때의 평균(36초)을 Microsoft Clarity 화면 녹화로 비교했습니다. 위젯으로 결제한 회원 대상 NPS는 +15.8점이었고, 사용 회원의 56%가 응답했습니다.</p>
           </div>
 
           <h4 class="gr-t">처음 세운 목표와 확인한 결과</h4>
@@ -771,17 +777,22 @@ footer a{color:var(--muted)}
             <tbody>
               <tr><td>주문의 50%가 퀵오더를 통해 발생</td><td class="na">미측정</td></tr>
               <tr><td>반복 주문 회원 75% 이상이 추천 루틴 리스트 사용</td><td class="na">미측정</td></tr>
-              <tr><td>긴급배송 사용 횟수 40% 감소</td><td class="ok">출시 전후 긴급배송 사용률 31.1%p 감소</td></tr>
+              <tr><td>긴급배송 사용 횟수 40% 감소</td><td class="ok">사용률 31.1%p 감소</td></tr>
             </tbody>
           </table>
-          <p>처음 문제였던 긴급배송은 기능 출시 전후로 사용률이 31.1%p 줄었습니다. 주문 비중과 추천 리스트 사용률은 측정하지 못해, 아래 지표로 기능이 맞는 방향인지 확인했습니다.</p>
+          <div class="result-box">
+            <span class="rb-k">결과</span>
+            <p class="rb-t">긴급배송 사용률 31.1%p 감소</p>
+            <p class="rb-b">기능 출시 전후의 긴급배송 사용률을 동일한 기준으로 비교했습니다. 출시 직전 2주 대비 출시 한 달 뒤 2주의 사용률이 31.1%p 낮아졌습니다.</p>
+          </div>
+          <p>주문 비중과 추천 리스트 사용률은 측정하지 못해, 아래 지표로 기능이 맞는 방향인지 확인했습니다.</p>
           <ul class="checked">
             <li>테스트 회원 20명의 주문 시간: 1분 50초에서 36초 (67% 단축)</li>
             <li>진입 회원 중 주문 비율: 14.9%에서 17.4% (배포 후 각 2주)</li>
             <li>퀵오더 오픈 후 새로 유입된 회원의 퀵오더 지속 주문</li>
             <li>영업부의 약국 영업 시 퀵오더 소개 도구 활용</li>
           </ul>
-          <p>마지막으로 타겟을 다시 봤습니다. 루틴 구매 회원 전체는 범위가 넓어 전환 효과가 낮았다고 판단했습니다. '주문 상품 다시 담기'를 월평균 15일 이상 쓰는 고의도 회원 53처로 타겟을 다시 정의했고, 이 중 다수가 아직 퀵오더를 써보지 않은 회원이라는 점을 확인했습니다.</p>
+          <p>마지막으로 타겟을 다시 봤습니다. 루틴 구매 회원 전체는 범위가 넓어 전환 효과가 낮았다고 판단했습니다. '주문 상품 다시 담기'를 월평균 15일 이상 쓰는 고의도 회원으로 타겟을 다시 정의했고, 이 중 다수가 아직 퀵오더를 써보지 않은 회원이라는 점을 확인했습니다.</p>
         </article>
       </div>
     </div>
@@ -1065,7 +1076,7 @@ footer a{color:var(--muted)}
         <h3>냉장의약품 RFID 재고관리</h3>
         <p class="sub">병원몰 재고관리 자동화 검토</p>
         <dl>
-          <dt>배경</dt><dd>더샵 매출의 61%가 냉장의약품이었지만, 병의원 재고관리는 수기 중심이었습니다.</dd>
+          <dt>배경</dt><dd>병원몰에서 냉장의약품 비중이 컸지만, 병의원 재고관리는 수기 중심이었습니다.</dd>
           <dt>한 일</dt><dd>진료과별 사용량을 분석하고, 수수료 수익과 태그비, 리더기 비용을 비교한 BEP 분석으로 리더기 무상 제공 대상 기준을 설계했습니다.</dd>
           <dt>복기</dt><dd>확보 가능한 제품이 대부분 상온 제품이라 목적에 맞는 실험군을 구하기 어려웠다는 구조적 한계를 확인했습니다.</dd>
         </dl>
@@ -1106,7 +1117,7 @@ footer a{color:var(--muted)}
 /* ===== 방문 및 클릭 기록 (Google 스프레드시트) =====
    Apps Script 웹 앱 주소(/exec로 끝나는 주소)를 아래 따옴표 안에 붙여 넣으면 기록이 시작됩니다.
    비워 두면 아무것도 기록하지 않습니다. */
-var LOG_URL = '';
+var LOG_URL = 'https://script.google.com/macros/s/AKfycbzwsMRWniML65jmMjBWT5RRBcWmQO4HuXe6uwifXwtGyZuFevYff0E63KhtYtYiHv3G/exec';
 (function(){
   var vid;
   try{ vid=localStorage.getItem('pf_vid'); if(!vid){ vid=Math.random().toString(36).slice(2,10); localStorage.setItem('pf_vid',vid); } }catch(e){ vid='no-storage'; }
