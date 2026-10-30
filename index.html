@@ -74,7 +74,7 @@ try{ if(!sessionStorage.getItem('introSeen') && !matchMedia('(prefers-reduced-mo
     <div class="guide">
       <p class="guide-t" data-reveal>처음 오셨다면, 이 순서로 보시면 됩니다.</p>
       <a class="g-card" href="#about" data-reveal style="--d:.05s"><span class="n">1</span><b>어떤 기획자인지</b><span>경력, 일하는 방식, 주요 이력을 1분 안에 볼 수 있습니다.</span><span class="go">소개 보기 →</span></a>
-      <a class="g-card" href="#projects" data-reveal style="--d:.15s"><span class="n">2</span><b>대표 프로젝트 3개</b><span>문제, 결과를 카드에서 먼저 보고, 누르면 전체 과정을 볼 수 있습니다.</span><span class="go">프로젝트 보기 →</span></a>
+      <a class="g-card" href="#projects" data-reveal style="--d:.15s"><span class="n">2</span><b>대표 프로젝트 3개</b><span>문제 발견부터 배포 후 측정까지, 같은 네 단계로 나란히 볼 수 있습니다.</span><span class="go">프로젝트 보기 →</span></a>
       <a class="g-card" href="#contact" data-reveal style="--d:.25s"><span class="n">3</span><b>연락과 PDF</b><span>메일 주소를 바로 복사하거나, 같은 내용을 PDF로 받을 수 있습니다.</span><span class="go">연락하기 →</span></a>
     </div>
   </div>
@@ -184,44 +184,25 @@ try{ if(!sessionStorage.getItem('introSeen') && !matchMedia('(prefers-reduced-mo
 
 <section class="block" id="projects" data-view="프로젝트 목록" style="padding-top:40px">
   <div class="container">
-    <div class="s-head" data-reveal><h2>대표 프로젝트</h2><p>카드를 누르면 문제 발견부터 출시까지 전체 과정을 볼 수 있습니다.</p></div>
-    <div class="works">
-    <a class="work" href="projects/quick-order.html" data-log="project_open" data-label="퀵오더" data-reveal style="--d:0.00s">
-      <div class="work-thumb t-green"><img src="assets/img/qo-screen.webp" alt="퀵오더 화면" loading="lazy"></div>
-      <div class="work-meta">
-        <div class="top-row"><span class="work-cat">B2B 커머스, 주문 기능 기획</span><span class="work-year">2025.04 ~ 2026.02</span></div>
-        <h3 class="work-title">퀵오더</h3>
-        <dl class="work-sum">
-          <div><dt>문제</dt><dd>일반배송보다 물류비가 3배 드는 긴급배송을 줄여야 했습니다. 원인은 자주 사는 상품을 매번 다시 찾다 빠뜨리는 주문 누락이었습니다.</dd></div>
-          <div><dt>결과</dt><dd>주문 시간 1분 50초에서 36초 (테스트 회원 20명), 긴급배송 사용률 31.1%p 감소 (출시 직전 2주 대비 출시 한 달 뒤 2주)</dd></div>
-        </dl>
-        <div class="work-foot"><span class="work-more">자세히 보기 →</span></div>
+    <div class="s-head" data-reveal><h2>대표 프로젝트</h2><p>세 프로젝트를 같은 네 단계로 따라가 보세요. 프로젝트 이름을 누르면 전체 과정을 볼 수 있습니다.</p></div>
+    <div class="flow">
+      <div class="fm-heads"><div class="fm-corner">같은 네 단계로<br>세 프로젝트를 나란히</div><a class="fm-head t-green" href="projects/quick-order.html" data-log="project_open" data-label="퀵오더"><span class="fm-thumb"><img src="assets/img/qo-screen.webp" alt="퀵오더 화면" loading="lazy"></span><span class="fm-cat">B2B 커머스, 주문 기능 기획</span><b>퀵오더</b><span class="fm-more">자세히 보기 →</span></a><a class="fm-head t-slate" href="projects/ad-platform.html" data-log="project_open" data-label="광고 성과 플랫폼"><span class="fm-thumb"><img src="assets/img/ad-dashboard.webp" alt="광고 성과 플랫폼 화면" loading="lazy"></span><span class="fm-cat">B2B 플랫폼, 광고주 셀프서비스</span><b>광고 성과 플랫폼</b><span class="fm-more">자세히 보기 →</span></a><a class="fm-head t-mint" href="projects/code-maker.html" data-log="project_open" data-label="AI 코드메이커"><span class="fm-thumb"><img src="assets/img/bot-order-num.webp" alt="AI 코드메이커 화면" loading="lazy"></span><span class="fm-cat">업무 자동화, 생성형 AI 활용</span><b>AI 코드메이커</b><span class="fm-more">자세히 보기 →</span></a></div>
+      <div class="fm-row" data-reveal style="--d:0.00s">
+        <div class="fm-stage"><span class="fm-n">01</span><b>문제 발견</b><span class="fm-q">무엇이 불편한가</span></div>
+        <div class="fm-cell"><span class="fm-tag">퀵오더</span><b>주문 누락</b><p>긴급배송 이용 사유 설문에서 '주문 누락'이 가장 많았습니다. 같은 상품을 10회 이상 사는 회원은 46.8%였습니다.</p></div><div class="fm-cell"><span class="fm-tag">광고 성과 플랫폼</span><b>볼 곳 없는 성과</b><p>셀러툴에 광고 성과를 볼 곳이 없어, 담당자가 Spotfire로 보고서를 건당 20분씩 손으로 만들었습니다.</p></div><div class="fm-cell"><span class="fm-tag">AI 코드메이커</span><b>한 칸에 붙은 로그</b><p>퀵오더 로그와 주문번호가 한 칸에 붙어 있어 파이썬 없이는 분석이 멈췄고, 데이터 확인에 2~3일이 걸렸습니다.</p></div>
       </div>
-    </a>
-    <a class="work" href="projects/ad-platform.html" data-log="project_open" data-label="광고 성과 플랫폼" data-reveal style="--d:0.12s">
-      <div class="work-thumb t-slate"><img src="assets/img/ad-dashboard.webp" alt="광고 성과 플랫폼 화면" loading="lazy"></div>
-      <div class="work-meta">
-        <div class="top-row"><span class="work-cat">B2B 플랫폼, 광고주 셀프서비스</span><span class="work-year">2025.10 ~ 2026.04</span></div>
-        <h3 class="work-title">광고 성과 플랫폼</h3>
-        <dl class="work-sum">
-          <div><dt>문제</dt><dd>셀러툴에 광고 성과를 분석할 도구가 없어, Spotfire 수기 보고서로 대응하고 있었습니다.</dd></div>
-          <div><dt>결과</dt><dd>건당 광고 성과 보고서 작성 시간 20분에서 12초 (내부 업무 기준), 광고주가 성과를 직접 확인하는 구조로 전환</dd></div>
-        </dl>
-        <div class="work-foot"><span class="work-more">자세히 보기 →</span></div>
+      <div class="fm-row" data-reveal style="--d:0.06s">
+        <div class="fm-stage"><span class="fm-n">02</span><b>가설과 검증</b><span class="fm-q">정말 그런가</span></div>
+        <div class="fm-cell"><span class="fm-tag">퀵오더</span><b>63.6%에서 85.1%</b><p>예측 알림 정확도 기준 70%를 먼저 정하고 넘겼습니다. 그래도 링크를 누르지 않아 약국 5곳을 찾아가 이유를 들었습니다.</p></div><div class="fm-cell"><span class="fm-tag">광고 성과 플랫폼</span><b>지표 4묶음과 AI 목업</b><p>지표를 유입, 전환, 비교, 충성도로 나눠 설계했습니다. AI로 만든 목업으로 광고주 PM과 CH 전문가의 의견을 받았습니다.</p></div><div class="fm-cell"><span class="fm-tag">AI 코드메이커</span><b>넣으면 코드가 나오는 봇</b><p>컬럼명과 분석 목적을 넣으면 파이썬 코드가 나오는 봇을 만들고, 실제 주문 데이터로 테스트하며 다듬었습니다.</p></div>
       </div>
-    </a>
-    <a class="work" href="projects/code-maker.html" data-log="project_open" data-label="AI 코드메이커" data-reveal style="--d:0.24s">
-      <div class="work-thumb t-mint"><img src="assets/img/bot-order-num.webp" alt="AI 코드메이커 화면" loading="lazy"></div>
-      <div class="work-meta">
-        <div class="top-row"><span class="work-cat">업무 자동화, 생성형 AI 활용</span><span class="work-year">2026.01</span></div>
-        <h3 class="work-title">AI 코드메이커</h3>
-        <dl class="work-sum">
-          <div><dt>문제</dt><dd>Spotfire 기본 기능으로 풀리지 않는 전처리가 반복됐고, 파이썬을 모르면 분석이 멈췄습니다.</dd></div>
-          <div><dt>결과</dt><dd>필요한 데이터를 확인하기까지 2~3일에서 10분 이내, 오류율 30% 감소 (초기 테스트 대비)</dd></div>
-        </dl>
-        <div class="work-foot"><span class="work-more">자세히 보기 →</span></div>
+      <div class="fm-row" data-reveal style="--d:0.12s">
+        <div class="fm-stage"><span class="fm-n">03</span><b>화면과 정책</b><span class="fm-q">무엇을 바꿀까</span></div>
+        <div class="fm-cell"><span class="fm-tag">퀵오더</span><b>알림 대신 화면</b><p>예측 알림 개발을 멈추고, 인터뷰에서 요구가 높았던 재고와 품절 정보를 주문 화면에 바로 넣었습니다.</p></div><div class="fm-cell"><span class="fm-tag">광고 성과 플랫폼</span><b>공통 화면은 지키고</b><p>한 광고주의 구분값 요청은 공통 화면에 넣지 않고, 기준값을 직접 등록하는 기능으로 풀었습니다. 판매후기 법적 대응 정책도 세웠습니다.</p></div><div class="fm-cell"><span class="fm-tag">AI 코드메이커</span><b>코드와 매뉴얼을 함께</b><p>오류가 나도 혼자 고칠 수 있게 변수 설명과 적용 순서를 함께 출력하도록 설계하고, 팀 교육을 두 차례 했습니다.</p></div>
       </div>
-    </a>
+      <div class="fm-row" data-reveal style="--d:0.18s">
+        <div class="fm-stage"><span class="fm-n">04</span><b>배포 후 측정</b><span class="fm-q">정말 바뀌었나</span></div>
+        <div class="fm-cell"><span class="fm-tag">퀵오더</span><b>1분 50초에서 36초</b><p>세 번 배포했습니다. 테스트 회원 20명의 주문 시간이 줄었고, 긴급배송 사용률은 31.1%p 낮아졌습니다.</p></div><div class="fm-cell"><span class="fm-tag">광고 성과 플랫폼</span><b>20분에서 12초</b><p>광고주가 실제로 쓰고 있습니다. 건당 보고서 작성 시간이 내부 업무 기준 20분에서 12초로 줄었습니다.</p></div><div class="fm-cell"><span class="fm-tag">AI 코드메이커</span><b>2~3일에서 10분 이내</b><p>오류율은 초기 테스트 대비 30% 줄었습니다. 이 봇으로 퀵오더 사용 흐름 분석이 가능해졌습니다.</p></div>
+      </div>
     </div>
   </div>
 </section>

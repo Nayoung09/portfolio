@@ -107,7 +107,7 @@ var LOG_URL = 'https://script.google.com/macros/s/AKfycbzwsMRWniML65jmMjBWT5RRBc
   var label=c.querySelector('span');
   function update(t){
     if(!t||!t.closest) return;
-    var view=t.closest('.work,.next');
+    var view=t.closest('.work,.next,.fm-head');
     c.classList.toggle('is-view',!!view);
     label.textContent = view && view.classList.contains('next') ? '다음 보기' : '자세히 보기';
     c.classList.toggle('is-link',!view && !!t.closest('a,button,summary,.zoom'));
