@@ -79,7 +79,7 @@ var LOG_URL = 'https://script.google.com/macros/s/AKfycbzwsMRWniML65jmMjBWT5RRBc
       (function tick(now){
         var k=Math.min(1,(now-start)/dur), e=1-Math.pow(1-k,3);
         tnum.textContent=fmt(Math.round(110-74*e));
-        rnum.textContent='−'+(31.1*e).toFixed(1)+'%p';
+        rnum.textContent='−'+(31.1*e).toFixed(1)+'%';
         if(k<1){ raf=requestAnimationFrame(tick); } else { tnum.classList.add('done'); rnum.classList.add('done'); }
       })(start);
     },4500));

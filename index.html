@@ -33,9 +33,9 @@ try{ if(!sessionStorage.getItem('introSeen') && !matchMedia('(prefers-reduced-mo
 <span class="im-b">테스트 회원 20명, 도입 전후 평균</span>
 </div>
 <div class="im">
-<span class="im-k">긴급배송 사용률 변화</span>
-<span class="im-v"><span class="im-to" id="rnum">−0.0%p</span></span>
-<span class="im-b">출시 직전 2주 대비 출시 한 달 뒤 2주</span>
+<span class="im-k">회원당 긴급배송 사용 횟수</span>
+<span class="im-v"><span class="im-to" id="rnum">−0.0%</span></span>
+<span class="im-b">대상 VIP 회원, 출시 직전 2주 대비 출시 한 달 뒤 2주</span>
 </div>
 </div>
 <div class="il i-sign sign">
@@ -60,8 +60,8 @@ try{ if(!sessionStorage.getItem('introSeen') && !matchMedia('(prefers-reduced-mo
   <div class="container">
     <h1><span class="line"><span>고객의 불편을 데이터로 찾고</span></span><span class="line"><span><em>화면으로 해결</em>합니다.</span></span></h1>
     <div class="hero-stats">
-      <div><b data-count="−31.1%p">−31.1%p</b><span>긴급배송 사용률<small>퀵오더, 출시 직전 2주 대비 출시 한 달 뒤 2주</small></span></div>
-      <div><b data-count="12초">12초</b><span>건당 광고 성과 보고서 작성<small>광고 성과 플랫폼, 기존 20분</small></span></div>
+      <div><b data-count="−31.1%">−31.1%</b><span>회원당 긴급배송 사용 횟수<small>퀵오더 대상 VIP 회원, 출시 직전 2주 대비 출시 한 달 뒤 2주</small></span></div>
+      <div><b data-count="12초">12초</b><span>성과 데이터 조회 시간<small>광고 성과 플랫폼, 기존 20분</small></span></div>
       <div><b data-count="10분 이내">10분 이내</b><span>필요한 데이터 확인까지<small>AI 코드메이커, 기존 2~3일</small></span></div>
     </div>
   </div>
@@ -193,7 +193,7 @@ try{ if(!sessionStorage.getItem('introSeen') && !matchMedia('(prefers-reduced-mo
       </div>
       <div class="fm-row" data-reveal style="--d:0.06s">
         <div class="fm-stage"><span class="fm-n">02</span><b>가설과 검증</b><span class="fm-q">정말 그런가</span></div>
-        <div class="fm-cell"><span class="fm-tag">퀵오더</span><b>63.6%에서 85.1%</b><p>예측 알림 정확도 기준 70%를 먼저 정하고 넘겼습니다. 그래도 링크를 누르지 않아 약국 5곳을 찾아가 이유를 들었습니다.</p></div><div class="fm-cell"><span class="fm-tag">광고 성과 플랫폼</span><b>지표 4묶음과 AI 목업</b><p>지표를 유입, 전환, 비교, 충성도로 나눠 설계했습니다. AI로 만든 목업으로 광고주 PM과 CH 전문가의 의견을 받았습니다.</p></div><div class="fm-cell"><span class="fm-tag">AI 코드메이커</span><b>넣으면 코드가 나오는 봇</b><p>컬럼명과 분석 목적을 넣으면 파이썬 코드가 나오는 봇을 만들고, 실제 주문 데이터로 테스트하며 다듬었습니다.</p></div>
+        <div class="fm-cell"><span class="fm-tag">퀵오더</span><b>63.6%에서 85.1%</b><p>예측 알림 정확도 기준 70%를 먼저 정하고 넘겼습니다. 그래도 링크를 누르지 않아 약국 5곳을 찾아가 이유를 들었습니다.</p></div><div class="fm-cell"><span class="fm-tag">광고 성과 플랫폼</span><b>지표 4묶음과 AI 목업</b><p>지표를 유입, 전환, 비교, 충성도로 나눠 설계했습니다. AI로 만든 목업으로 광고주 PM과 광고 전문가의 의견을 받았습니다.</p></div><div class="fm-cell"><span class="fm-tag">AI 코드메이커</span><b>넣으면 코드가 나오는 봇</b><p>컬럼명과 분석 목적을 넣으면 파이썬 코드가 나오는 봇을 만들고, 실제 주문 데이터로 테스트하며 다듬었습니다.</p></div>
       </div>
       <div class="fm-row" data-reveal style="--d:0.12s">
         <div class="fm-stage"><span class="fm-n">03</span><b>화면과 정책</b><span class="fm-q">무엇을 바꿀까</span></div>
@@ -201,7 +201,7 @@ try{ if(!sessionStorage.getItem('introSeen') && !matchMedia('(prefers-reduced-mo
       </div>
       <div class="fm-row" data-reveal style="--d:0.18s">
         <div class="fm-stage"><span class="fm-n">04</span><b>배포 후 측정</b><span class="fm-q">정말 바뀌었나</span></div>
-        <div class="fm-cell"><span class="fm-tag">퀵오더</span><b>1분 50초에서 36초</b><p>세 번 배포했습니다. 테스트 회원 20명의 주문 시간이 줄었고, 긴급배송 사용률은 31.1%p 낮아졌습니다.</p></div><div class="fm-cell"><span class="fm-tag">광고 성과 플랫폼</span><b>20분에서 12초</b><p>광고주가 실제로 쓰고 있습니다. 건당 보고서 작성 시간이 내부 업무 기준 20분에서 12초로 줄었습니다.</p></div><div class="fm-cell"><span class="fm-tag">AI 코드메이커</span><b>2~3일에서 10분 이내</b><p>오류율은 초기 테스트 대비 30% 줄었습니다. 이 봇으로 퀵오더 사용 흐름 분석이 가능해졌습니다.</p></div>
+        <div class="fm-cell"><span class="fm-tag">퀵오더</span><b>1분 50초에서 36초</b><p>세 번 배포했습니다. 테스트 회원 20명의 주문 시간이 줄었고, 대상 VIP 회원의 회원당 긴급배송 사용 횟수는 31.1% 줄었습니다.</p></div><div class="fm-cell"><span class="fm-tag">광고 성과 플랫폼</span><b>20분에서 12초</b><p>광고주가 실제로 쓰고 있습니다. 성과 데이터 조회 시간이 운영 화면 기준 20분에서 12초로 줄었습니다.</p></div><div class="fm-cell"><span class="fm-tag">AI 코드메이커</span><b>2~3일에서 10분 이내</b><p>동료 테스트 후 기획 업무 3건에 적용했습니다. 이 봇으로 퀵오더 사용 흐름 분석이 가능해졌습니다.</p></div>
       </div>
     </div>
   </div>
@@ -209,7 +209,7 @@ try{ if(!sessionStorage.getItem('introSeen') && !matchMedia('(prefers-reduced-mo
 
 <section class="block" id="others" data-view="추가 경험" style="padding-top:0">
   <div class="container">
-    <div class="s-head" data-reveal><h2>그 밖의 프로젝트</h2><p>실무에서 맡은 작은 과제, 학회 논문, 공모전과 학교 프로젝트를 모았습니다.</p></div>
+    <div class="s-head" data-reveal><h2>그 밖의 프로젝트</h2><p>실무에서 맡은 작은 과제와 논문, 공모전을 모았습니다.</p></div>
     <p class="hint">제목을 누르면 배경과 한 일이 펼쳐지고, 최종 결과물이 남아 있는 항목은 이미지도 볼 수 있습니다.</p>
     <div class="o-group" data-reveal>
       <p class="o-gh"><b>실무 추가 과제</b><span>더편한샵에서 맡은 과제 중 대표 프로젝트보다 범위가 작거나, 검증 단계에서 멈춘 과제입니다.</span></p>
@@ -221,28 +221,6 @@ try{ if(!sessionStorage.getItem('introSeen') && !matchMedia('(prefers-reduced-mo
       <details class="other" data-log="other_open" data-label="SLA 평가 대시보드">
         <summary><span class="o-title">SLA 평가 대시보드</span><span class="o-sub">더샵플러스 유통 품질 관리, Looker</span><span class="o-plus" aria-hidden="true"></span></summary>
         <dl><div><dt>배경</dt><dd>구색, 최저가, 반품, 품절약을 관리할 공통 기준이 없어 데이터 재조회와 책임 소재 문제가 반복됐습니다.</dd></div><div><dt>한 일</dt><dd>SLA 지표 4가지를 정의하고, n8n으로 매일 오전 7시 구글시트를 갱신해 Looker로 시각화하는 구조를 만들었습니다.</dd></div><div><dt>과정</dt><dd>자동 갱신 시 수식이 깨지는 문제를 '가공용' 탭을 따로 두어 해결했습니다.</dd></div></dl>
-      </details>
-      <details class="other" data-log="other_open" data-label="입고요청 대시보드">
-        <summary><span class="o-title">입고요청 대시보드</span><span class="o-sub">품절 상품 입고요청과 공급사 응답율</span><span class="o-plus" aria-hidden="true"></span></summary>
-        <dl><div><dt>배경</dt><dd>의약품 수급 불안 속에서 회원의 입고요청에 공급사가 얼마나 응답하는지 볼 수 없었습니다.</dd></div><div><dt>한 일</dt><dd>약사, 공급사, 더샵 각각의 이득을 기준으로 입고요청 순위, 공급사 응답 소요시간 대시보드를 기획했습니다.</dd></div><div><dt>과정</dt><dd>개발팀과 SQL 조회조건과 채널별 데이터 조인 구조를 정의하고, 대시보드별 매뉴얼을 만들었습니다.</dd></div></dl>
-      </details>
-      <details class="other" data-log="other_open" data-label="냉장의약품 RFID 재고관리">
-        <summary><span class="o-title">냉장의약품 RFID 재고관리</span><span class="o-sub">병원몰 재고관리 자동화 검토</span><span class="o-plus" aria-hidden="true"></span></summary>
-        <dl><div><dt>배경</dt><dd>병원몰에서 냉장의약품 비중이 컸지만, 병의원 재고관리는 수기 중심이었습니다.</dd></div><div><dt>한 일</dt><dd>진료과별 사용량을 분석하고, 수수료 수익과 태그비, 리더기 비용을 비교한 BEP 분석으로 리더기 무상 제공 대상 기준을 설계했습니다.</dd></div><div><dt>복기</dt><dd>확보 가능한 제품이 대부분 상온 제품이라 목적에 맞는 실험군을 구하기 어려웠다는 구조적 한계를 확인했습니다.</dd></div></dl>
-      </details>
-      </div>
-    </div>
-    <div class="o-group" data-reveal>
-      <p class="o-gh"><b>인턴 및 직무 교육</b><span>T1 사업개발팀 인턴과 T1A 수업에서 한 기획 과제입니다.</span></p>
-      <div class="others">
-      <details class="other" data-log="other_open" data-label="T1 인턴">
-        <summary><span class="o-title">T1 인턴</span><span class="o-sub">2023.10~11 SK Telecom CS T1, Business Development Team, 약 1개월</span><span class="o-plus" aria-hidden="true"></span></summary>
-        <dl><div><dt>배경</dt><dd>T1 멤버십과 T1A(T1 e스포츠 아카데미) 사업을 넓힐 방안을 찾는 사업개발팀에서 한 달간 일했습니다. 기간이 짧아 정량 성과는 없습니다.</dd></div><div><dt>한 일</dt><dd>멤버십 리뉴얼 기획안을 썼습니다. 구매력이 낮고 정보성 콘텐츠를 원하는 남성 팬을 위해 월 3,900원 SILVER 등급을 두고, GOLDEN과 PREMIUM까지 등급을 나눴습니다. 유튜브 콘텐츠 최대 72시간 선공개, 포인트 제도, 네이버 체크인 챌린지를 참고한 SHOW YOUR T1 커뮤니티 챌린지를 함께 제안했습니다.</dd></div><div><dt>과정</dt><dd>국내 단기 프로그램으로 방학 6주 라인 평가 프로그램(12회), 1박2일과 2박3일 캠프, 게임 체험형 캠프, 프로 준비 캠프의 일정과 가격을 짰고, 학교와 학원 컨택 리스트를 정리했습니다. T1A 수강생과 2군의 내전 라이브 같은 유튜브 기획안, 팝업스토어 현장 운영 점검 보고서, 크리에이터 홍보 대본 수정, 뷰잉파티 이벤트 아이디어도 맡았습니다.</dd></div></dl>
-      </details>
-      <details class="other" data-log="other_open" data-label="T1A 수업 팀 과제, To 1st Academy">
-        <summary><span class="o-title">T1A 수업 팀 과제, To 1st Academy</span><span class="o-sub">2023.08~09 T1A Path To E-sports 수업, 5인 팀</span><span class="o-plus" aria-hidden="true"></span></summary>
-        <dl><div><dt>배경</dt><dd>오프라인 아카데미는 수용 인원에 한계가 있고, 유튜브가 경쟁 상대로 떠오르면서 T1A의 매출을 어떻게 늘릴지가 주제였습니다.</dd></div><div><dt>한 일</dt><dd>SWOT 분석을 바탕으로 세 가지 사업을 제안했습니다. e스포츠 입시 컨설팅 PTU(입시 입문반 1회 90분 20만원, 입시 완결반 80만원, 대학 프로 진학반 80만원), 2박3일 캠프 TCK(T1A Champions Korea), 가족이 함께 참여하는 T1 Arcade입니다.</dd></div><div><dt>과정</dt><dd>PTU는 STP와 고객여정지도로 목표 고객을 정했고, TCK는 경쟁 아카데미의 캠프와 기간 및 가격을 비교했습니다. 마지막으로 홈페이지 리뉴얼과 T1A 전용 유튜브 개설을 홍보 수단으로 제안했습니다.</dd></div></dl>
-        <figure class="o-fig n4"><div class="o-shots"><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-t1a-1.webp" alt="To 1st Academy, 최고를 향한 여정 발표 표지" loading="lazy"></button><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-t1a-2.webp" alt="발표 목차" loading="lazy"></button><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-t1a-3.webp" alt="PTU 입시 컨설팅 가격과 장소 슬라이드" loading="lazy"></button><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-t1a-4.webp" alt="TCK 캠프 홍보 포스터 슬라이드" loading="lazy"></button></div><figcaption>최종 발표 자료입니다. 표지, 목차, PTU 가격과 장소, TCK 캠프 포스터 순서입니다.</figcaption></figure>
       </details>
       </div>
     </div>
@@ -262,44 +240,12 @@ try{ if(!sessionStorage.getItem('introSeen') && !matchMedia('(prefers-reduced-mo
       </div>
     </div>
     <div class="o-group" data-reveal>
-      <p class="o-gh"><b>공모전 및 학교 프로젝트</b><span>문제를 찾고 서비스로 제안한 팀 프로젝트입니다. 수상 결과가 확인되지 않은 공모전은 결과를 적지 않았습니다.</span></p>
+      <p class="o-gh"><b>공모전</b><span>문제를 찾고 서비스로 제안한 팀 프로젝트입니다. 수상 결과가 확인되지 않은 공모전은 결과를 적지 않았습니다.</span></p>
       <div class="others">
-      <details class="other" data-log="other_open" data-label="CJ 외식 마케팅 아이디어 챌린지">
-        <summary><span class="o-title">CJ 외식 마케팅 아이디어 챌린지</span><span class="o-sub">2025.01 CJ프레시웨이, 청년다방 마케팅 제안, 3인 팀</span><span class="o-plus" aria-hidden="true"></span></summary>
-        <dl><div><dt>배경</dt><dd>즉석떡볶이 프랜차이즈 경쟁이 심해진 상황에서, 청년다방이 1020 고객의 매장 방문을 늘릴 통합 마케팅 아이디어가 과제였습니다.</dd></div><div><dt>한 일</dt><dd>신학기 프로모션 청년다와방을 제안했습니다. 숏폼 영상, 토핑 성격 테스트, 매장에서 떡을 25cm에 맞춰 자르면 할인해 주는 2025 롱떡 챌린지를 하나의 캠페인으로 묶었습니다.</dd></div><div><dt>근거</dt><dd>1020 대상 설문(1월 12일~20일)에서 응답자 90% 이상이 청년다방 커피를 마셔 본 적이 없었고, 그중 약 35%는 커피를 파는지 몰랐습니다. 그래서 식사 후 커피를 할인하는 식후샷 이벤트와 커피 신메뉴를 함께 제안했습니다.</dd></div></dl>
-        <figure class="o-fig n5"><div class="o-shots"><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-cj-1.webp" alt="2025 롱떡 챌린지 오프라인 포스터" loading="lazy"></button><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-cj-2.webp" alt="롱떡 챌린지 숏폼 썸네일" loading="lazy"></button><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-cj-3.webp" alt="청년다방 성격 테스트 시작 화면" loading="lazy"></button><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-cj-4.webp" alt="청년다방 성격 테스트 질문 화면" loading="lazy"></button><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-cj-5.webp" alt="청년다방 커피 신메뉴 컵 시안" loading="lazy"></button></div><figcaption>제안서에 넣은 시안입니다. 롱떡 챌린지 포스터와 숏폼 썸네일, 토핑 성격 테스트 화면, 커피 신메뉴 컵 시안 순서입니다.</figcaption></figure>
-      </details>
       <details class="other" data-log="other_open" data-label="트래블 이노베이션 공모전">
         <summary><span class="o-title">트래블 이노베이션 공모전</span><span class="o-sub">2026.06~07 지역축제 방탈출 기획 탈출; 脫出, 3인 팀</span><span class="o-plus" aria-hidden="true"></span></summary>
         <dl><div><dt>배경</dt><dd>하회마을 방문객은 코로나19 이후 연 50만~60만 명 수준으로 줄었고, 가을 축제 시기에만 몰렸습니다. 볼거리 위주라 머무는 시간과 소비도 짧았습니다.</dd></div><div><dt>한 일</dt><dd>역사 기반 방탈출 축제 아이디어를 처음 제안했고, 팀 논의를 거쳐 안동 하회마을을 무대로 정했습니다. 참가자가 쓰는 웹 앱의 화면 흐름(인트로, 로그인, 역할 배정, 미션, 최종 결과)과 공통 UI 규칙을 정하고, <a href="https://knypoiu7809-boop.github.io/hahoe-escape/" target="_blank" rel="noopener">실제 웹 앱</a>으로 만들었습니다. 장소 제안과 예산안도 맡았습니다.</dd></div><div><dt>과정</dt><dd>사라진 하회탈을 찾는 이야기에 역할별 히든미션을 붙이고, 지도, 힌트, GPS 위치 확인을 웹 앱에 넣었습니다. 가이드북, 기본 키트, 굿즈, 경품 구조를 하나의 동선으로 묶어 비축제 기간에도 운영할 수 있는 상시 콘텐츠로 제안했습니다.</dd></div></dl>
         <figure class="o-fig n5"><div class="o-shots"><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-tr-1.webp" alt="탈출; 脫出 제안서 표지" loading="lazy"></button><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-tr-2.webp" alt="웹 앱 화면 전환 플로우와 공통 UI 규칙" loading="lazy"></button><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-tr-3.webp" alt="웹 앱 인트로와 로그인 화면" loading="lazy"></button><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-tr-4.webp" alt="웹 앱 미션 진행 화면" loading="lazy"></button><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-tr-5.webp" alt="예산안 및 수익구조" loading="lazy"></button></div><figcaption>제출한 제안서입니다. 표지, 웹 앱 화면 플로우와 UI 규칙, 인트로와 로그인 화면, 미션 진행 화면, 예산안 순서입니다.</figcaption></figure>
-      </details>
-      <details class="other" data-log="other_open" data-label="문화데이터 공모전">
-        <summary><span class="o-title">문화데이터 공모전</span><span class="o-sub">2024.07 아이디어 부문, 지역 축제 추천 플랫폼, 3인 팀</span><span class="o-plus" aria-hidden="true"></span></summary>
-        <dl><div><dt>배경</dt><dd>해마다 1,170개가 넘는 지역축제가 열리지만 비슷한 프로그램이 반복돼, 방문객이 취향에 맞는 축제를 찾기 어렵다고 봤습니다.</dd></div><div><dt>한 일</dt><dd>취향과 기간을 고르면 축제를 추천하고 주변 놀거리와 맛집까지 이어 주는 흐름을 잡았습니다. 축제 검색량 데이터를 형태소 분석해 분류하고, 블로그 제목을 크롤링해 축제별 연관 키워드를 뽑는 방안을 냈습니다.</dd></div><div><dt>과정</dt><dd>블로그 키워드 빈도분석과 방문객 수 회귀분석을 진행했고, 축제 유형보다 예산이 방문객 수에 유의한 변수라는 점을 확인했습니다.</dd></div></dl>
-      </details>
-      <details class="other" data-log="other_open" data-label="미래도서관 공모전">
-        <summary><span class="o-title">미래도서관 공모전</span><span class="o-sub">2024.01~04 국립중앙도서관, 시니어 플랫폼 가나다란 제안, 팀</span><span class="o-plus" aria-hidden="true"></span></summary>
-        <dl><div><dt>배경</dt><dd>60세 이상 도서관 회원 비율은 6.02%(2023년, 도서관 정보나루)로 낮았고, 기존 노인 서비스는 일시적인 편의 도구에 머물렀습니다.</dd></div><div><dt>한 일</dt><dd>활동적인 시니어가 콘텐츠를 만들고 다른 시니어가 이용하는 Senior to Senior 앱 가나다란을 제안했습니다. 시니어가 녹음한 오디오북과 도서 팟캐스트, 시니어가 가르치는 클래스, 커뮤니티를 담았습니다.</dd></div><div><dt>과정</dt><dd>도서관 정보나루의 연령별 인기 대출 도서 데이터로 60대 이상 인기 도서를 첫 화면에 보여주고, 오디오북 유무에 따라 듣기 또는 가까운 도서관 대출로 이어지게 설계했습니다.</dd></div></dl>
-      </details>
-      <details class="other" data-log="other_open" data-label="한국산업단지공단 공공데이터 공모전">
-        <summary><span class="o-title">한국산업단지공단 공공데이터 공모전</span><span class="o-sub">산업단지 안전사고 예측 알림 서비스 제리미, 팀</span><span class="o-plus" aria-hidden="true"></span></summary>
-        <dl><div><dt>배경</dt><dd>중소기업 중대사고의 97%가 20년 이상 된 노후 산업단지에서 발생했고, 기존 안전관리는 사고 이후 대응에 가까웠습니다.</dd></div><div><dt>한 일</dt><dd>사고 데이터로 사고가 잦은 시기와 구역을 찾고, 근로자 앱으로 위험 시기 경보, 안전 대안 안내, 원클릭 신고를 제공하는 제리미(제조업 사고 알리미)를 기획했습니다.</dd></div><div><dt>과정</dt><dd>업종마다 사고 유형이 달라, 비슷한 업종끼리 묶어 정보를 공유해야 예측이 쓸모 있다는 피드백을 반영했습니다.</dd></div></dl>
-      </details>
-      <details class="other" data-log="other_open" data-label="DATA 111, Your-K">
-        <summary><span class="o-title">DATA 111, Your-K</span><span class="o-sub">2023.07 메타버스로 외래관광객 관광 문제 해결, 팀</span><span class="o-plus" aria-hidden="true"></span></summary>
-        <dl><div><dt>배경</dt><dd>외래관광객 방문이 서울과 일부 지역에 몰렸고, 외래관광객은 여행 전 공공기관 관광 사이트를 거의 쓰지 않았습니다(2019 외래관광조사).</dd></div><div><dt>한 일</dt><dd>데이터 분석과 발표 자료 구성을 맡았습니다. 2019년과 2022년 외래관광객 실태조사로 미국, 일본, 중국 관광객의 방문지 네트워크를 그려 서울 쏠림을 보여줬습니다.</dd></div><div><dt>과정</dt><dd>분석을 근거로 외래관광객이 가상 공간에서 지역을 미리 체험하고 추천 경로를 받는 Your-K를 제안하고, 전주를 예시로 추천 경로와 예상 경비를 정리했습니다.</dd></div></dl>
-        <figure class="o-fig n3"><div class="o-shots"><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-d111-1.webp" alt="내 손 안에 한국 여행 Your-K 발표 표지" loading="lazy"></button><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-d111-2.webp" alt="2019년과 2022년 방문지 권역 네트워크 비교 슬라이드" loading="lazy"></button><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-d111-3.webp" alt="방문지역 내부 이동과 외부 이동 비교 슬라이드" loading="lazy"></button></div><figcaption>최종 발표 자료입니다. 표지, 방문지 권역 네트워크 비교, 지역별 내부 이동과 외부 이동 비교 슬라이드 순서입니다.</figcaption></figure>
-      </details>
-      <details class="other" data-log="other_open" data-label="마케팅전략, 올리브영">
-        <summary><span class="o-title">마케팅전략, 올리브영</span><span class="o-sub">2023.04~06 교내 마케팅전략 수업, 5인 팀</span><span class="o-plus" aria-hidden="true"></span></summary>
-        <dl><div><dt>배경</dt><dd>혜택만 챙기고 떠나는 체리슈머 고객을 어떻게 다시 오게 할지가 주제였습니다.</dd></div><div><dt>한 일</dt><dd>뷰티 고관여자 데이터를 제로 파티(설문)와 퍼스트 파티(앱 활동, 검색 기록, 구매 내역, 푸시 반응)로 나눠 수집 구조를 설계했습니다. 최종 발표 자료에서는 체리슈머 정의와 앱 화면 제안 부분을 만들었습니다.</dd></div><div><dt>과정</dt><dd>수집한 데이터를 바탕으로 체리슈머의 재방문을 늘리는 메시지 시나리오와 데이터 기반 개인화 서비스를 제안했습니다.</dd></div></dl>
-        <figure class="o-fig n3"><div class="o-shots"><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-oy-1.webp" alt="올리브영 체리슈머를 잡아라 발표 표지" loading="lazy"></button><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-oy-2.webp" alt="발표 목차" loading="lazy"></button><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-oy-3.webp" alt="올리브영 뷰티 고관여자 제로 파티 데이터 슬라이드" loading="lazy"></button></div><figcaption>최종 발표 자료입니다. 표지, 목차, 고객 데이터 수집 설계 슬라이드 순서입니다.</figcaption></figure>
-      </details>
-      <details class="other" data-log="other_open" data-label="스파이더코어 산학 프로젝트">
-        <summary><span class="o-title">스파이더코어 산학 프로젝트</span><span class="o-sub">2023.04~08 기업 스파이더코어 산학 협력</span><span class="o-plus" aria-hidden="true"></span></summary>
-        <dl><div><dt>배경</dt><dd>기업이 제공한 AutoEncoder 기반 링크 예측 모델(유전자 상호작용 데이터)을 최적화하는 과제였습니다.</dd></div><div><dt>한 일</dt><dd>활성화 함수, 가중치 초기화, 옵티마이저, 손실 함수를 정리해 동료와 함께 발표했고, 모델의 활성화 함수를 ReLU에서 LeakyReLU, PReLU로 바꿔 실험했습니다.</dd></div><div><dt>결과</dt><dd>기존 AutoEncoder보다 GNN 계열 GraphSAGE의 정확도가 더 높게 나왔다는 결과를 정리했습니다.</dd></div></dl>
-        <figure class="o-fig n2"><div class="o-shots"><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-sp-1.webp" alt="스파이더코어 산학 협력 프로젝트 중간 발표 슬라이드" loading="lazy"></button><button type="button" class="zoom" aria-label="이미지 크게 보기"><img src="assets/img/o-sp-2.webp" alt="전체 결과 요약 슬라이드" loading="lazy"></button></div><figcaption>발표 자료입니다. 중간 발표 슬라이드와 전체 결과 요약 순서입니다.</figcaption></figure>
       </details>
       </div>
     </div>
