@@ -787,3 +787,25 @@ body{background:var(--bg);color:var(--ink);font-size:17px}
 .o-fig.n1 .o-shots .zoom img{height:auto}
 @media (max-width:820px){.o-shots,.o-fig.n5 .o-shots{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .o-fig figcaption{margin-top:10px;font-size:13px;line-height:1.6;color:var(--muted)}
+
+/* PDF 받기 강조 */
+.gnb .nav-pdf,.gnb.on-dark:not(.scrolled) .nav-pdf{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:700;padding:10px 18px;box-shadow:0 6px 18px rgba(36,86,232,.35);display:inline-flex;align-items:center;gap:6px;transition:transform .2s,box-shadow .2s,background .2s}
+.gnb .nav-pdf:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(36,86,232,.45);background:#1B45C8}
+.gnb .pdf-ic{display:inline-block;font-size:12px;animation:pdfbob 1.8s ease-in-out infinite}
+@keyframes pdfbob{0%,100%{transform:translateY(0)}50%{transform:translateY(2px)}}
+@media (prefers-reduced-motion:reduce){.gnb .pdf-ic{animation:none}}
+@media (max-width:720px){.gnb .nav-pdf{display:inline-flex;padding:8px 12px;font-size:12px}.gnb nav{gap:12px}}
+/* 이렇게 일합니다 */
+.how-t{font-size:15px;font-weight:800;color:var(--accent);margin:0 0 6px}
+/* 이력 토글 */
+.rec-toggle{margin-top:48px;border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.rec-toggle summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:24px 0;font-size:20px;font-weight:800}
+.rec-toggle summary::-webkit-details-marker{display:none}
+.rec-toggle summary:hover{color:var(--accent)}
+.rt-ic{position:relative;width:20px;height:20px}
+.rt-ic::before,.rt-ic::after{content:"";position:absolute;left:50%;top:50%;width:18px;height:2px;background:currentColor;transform:translate(-50%,-50%);transition:transform .25s}
+.rt-ic::after{transform:translate(-50%,-50%) rotate(90deg)}
+.rec-toggle[open] .rt-ic::after{transform:translate(-50%,-50%) rotate(0)}
+.rec-body{padding:8px 0 40px}
+
+@media (max-width:480px){.home-hero h1{font-size:29px;letter-spacing:-.03em}}
